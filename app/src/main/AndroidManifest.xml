@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication1050403">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".join"
+            android:label="@string/title_activity_join"></activity>
+        <activity
+            android:name=".forget"
+            android:label="@string/title_activity_forget">
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            >
+        </activity>
+        <activity
+            android:name=".ShowServerMessage"
+            android:label="顯示網站原始碼"></activity>
+
+        <activity android:name=".Version"></activity>
+    </application>
+
+</manifest>
