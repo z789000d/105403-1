@@ -27,7 +27,6 @@ public class MainActivity extends Activity {
         TextView text2 = (TextView) findViewById(R.id.text2);
         TextView text3 = (TextView) findViewById(R.id.text3);
         Button button1 = (Button) findViewById(R.id.button1);
-        ScaleImage mScaleImage = (ScaleImage) findViewById(R.id.imageView1);
 
 
         button1.setOnClickListener(new TextView.OnClickListener() {

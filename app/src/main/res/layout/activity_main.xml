@@ -85,12 +85,6 @@
             android:layout_weight="1"
             >
 
-            <com.example.myapplication1050403.ScaleImage
-                android:id="@+id/imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/test"/>
 
             <Button
                 android:layout_width="wrap_content"
