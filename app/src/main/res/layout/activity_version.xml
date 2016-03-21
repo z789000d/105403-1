@@ -2,23 +2,96 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
 
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="2000dp"
+            android:background="#000000"
+            android:id="@+id/view2"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <View
+            android:layout_width="1000dp"
+            android:layout_height="5dp"
+            android:background="#000000"
+            android:id="@+id/view"
+
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <!--<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/imageView2"
+            android:src="@drawable/test"
+
+
+
+
+            />
+-->
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
 
-        android:src="@drawable/fuck"
+        android:id="@+id/imageView"
+        android:src="@drawable/test"
+
 
 
         />
 
-</LinearLayout>
+
+
+
+    <!--<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_wight="1"
+        android:id="@+id/imageView3"
+        android:src="@drawable/test"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_wight="1"
+        android:id="@+id/imageView4"
+        android:src="@drawable/test"
+        android:layout_marginTop="300dp"
+
+        />-->
+
+
+    <!--        <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/fuck"
+                />-->
 
 
 </RelativeLayout>
