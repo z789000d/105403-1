@@ -38,9 +38,9 @@
             android:layout_alignParentStart="true" />
     </RelativeLayout>
 
-    <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+    <!--<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
             android:id="@+id/imageView2"
             android:src="@drawable/test"
@@ -49,14 +49,14 @@
 
 
             />
-
+-->
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="200px"
+        android:layout_height="200px"
 
         android:id="@+id/imageView"
         android:src="@drawable/test"
-        android:layout_toRightOf="@+id/imageView2"
+
 
 
         />

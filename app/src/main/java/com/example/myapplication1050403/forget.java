@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
 
 public class forget extends ActionBarActivity {
@@ -36,6 +37,25 @@ public class forget extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();//取x軸
+        int y = (int) event.getY();//取y軸
+        int action = event.getAction();//取整數
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                setTitle("按下:" + x + "," + y);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                setTitle("平移:" + x + "," + y);
+                break;
+            case MotionEvent.ACTION_UP:
+                setTitle("彈起:" + x + "," + y);
+                break;
+        }
+
+        return true;// super.onTouchEvent(event);
+    }
+
 
 }
 
