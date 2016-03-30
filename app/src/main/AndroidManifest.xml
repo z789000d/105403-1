@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".join"
-            android:label="@string/title_activity_join"></activity>
+            android:label="@string/title_activity_join" />
         <activity
             android:name=".forget"
             android:label="@string/title_activity_forget">
@@ -34,9 +34,13 @@
         </activity>
         <activity
             android:name=".ShowServerMessage"
-            android:label="顯示網站原始碼"></activity>
-
-        <activity android:name=".Version"></activity>
+            android:label="顯示網站原始碼" />
+        <activity android:name=".Version" />
+        <activity android:name=".ShowInWebview"></activity>
     </application>
+
+    <uses-sdk android:minSdkVersion="7" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

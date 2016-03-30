@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
 
 
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this,ShowServerMessage.class);
+                intent.setClass(MainActivity.this,ShowInWebview.class);
                 startActivity(intent);
                 MainActivity.this.finish();
              /*點選button1進入顯示原始碼畫面*/
