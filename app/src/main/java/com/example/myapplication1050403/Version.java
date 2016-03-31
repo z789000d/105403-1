@@ -27,22 +27,13 @@ public class Version extends Activity {
         //img2 = (ImageView) findViewById(R.id.imageView2);
         /*img3 = (ImageView) findViewById(R.id.imageView3);
         img4 = (ImageView) findViewById(R.id.imageView4);*/
-
-
-
-
-
-
-
-
-
+        // layout(228,566,228+ img.getWidth(), 566 + img.getHeight());
+        //getWindowManager().getDefaultDisplay().getMetrics(displaymetrics); //取得螢幕尺寸
 
         img.setOnTouchListener(new OnTouchListener() {
             private float x, y;    // 原本圖片存在的X,Y軸位置
-            private float ux,uy;
+            private float ux, uy;
             private int mx, my; // 圖片被拖曳的X ,Y軸距離長度
-
-
 
 
             public boolean onTouch(View v, MotionEvent event) {
@@ -67,25 +58,35 @@ public class Version extends Activity {
                     case MotionEvent.ACTION_UP:
                         ux = event.getX();
                         uy = event.getY();
-                        Log.d("123",String.valueOf(ux)+"~~"+String.valueOf(uy));
+
 
                         int[] location = new int[2];
-                        img.getLocationOnScreen(location);           //抓圖片在螢幕的座標
+                        img.getLocationOnScreen(location);           //抓圖片在螢幕的座標img
                         int a = location[0];
                         int b = location[1];
+                        Log.d("123", String.valueOf(a) + "~~" + String.valueOf(b));
+                        if (a > 636 && b < 1149) {
 
-                        if (a>650  &&  b<1359) {
+                            v.layout(975, 573, 975 + v.getWidth(), 573 + v.getHeight());
+                            ;
+                            //圖片在這個座標範圍內自動跳入固定座標
 
-                            v.layout(1084,714,1084+ v.getWidth() , 714+ v.getHeight());
-                           ;
-                                                                                                //圖片在這個座標範圍內自動跳入固定座標
+                        } else if (a < 636 && b < 1149) {
 
-                        }
-                        else {
+                            v.layout(228, 566, 228 + v.getWidth(), 566 + v.getHeight());
+
+                        } else if (a < 636 && b > 1149) {
+
+                            v.layout(219, 1726, 219 + v.getWidth(), 1726 + v.getHeight());
+
+                        } else if (a > 636 && b > 1149) {
+
+                            v.layout(959, 1714, 959 + v.getWidth(), 1714 + v.getHeight());
+
+                        } else {
                             v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());         //在外面可以自由移動
 
                         }
-
 
 
                 }
@@ -97,17 +98,6 @@ public class Version extends Activity {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
