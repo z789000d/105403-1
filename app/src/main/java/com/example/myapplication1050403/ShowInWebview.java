@@ -1,25 +1,20 @@
 package com.example.myapplication1050403;
 
 import java.net.URL;
-import java.net.URLDecoder;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Html;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnTouchListener;
 
 public class ShowInWebview extends ActionBarActivity {
 
@@ -30,6 +25,7 @@ public class ShowInWebview extends ActionBarActivity {
     Button  b01;
     Thread th;
     String  geturl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +62,7 @@ public class ShowInWebview extends ActionBarActivity {
         ed01 = (EditText) findViewById(R.id.ed01);
         b01 = (Button) findViewById(R.id.b01);
 
+
         b01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +71,58 @@ public class ShowInWebview extends ActionBarActivity {
                 ed01.setText(null); //重設內容
                 th = new Thread(r0);                //執行緒
                 th.start();                    //讓執行緒開始工作
+            }
+        });
+
+
+        w01.setOnTouchListener(new OnTouchListener() {
+            private float x, y;    // 原本圖片存在的X,Y軸位置
+            private float ux, uy;
+            private int mx, my; // 圖片被拖曳的X ,Y軸距離長度
+
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Log.e("View", v.toString());
+                switch (event.getAction()) {          //判斷觸控的動作
+
+                    case MotionEvent.ACTION_DOWN:// 按下圖片時
+                        x = event.getX();                  //觸控的X軸位置
+                        y = event.getY();                  //觸控的Y軸位置
+//                        int[] location = new int[2];
+//                        w01.getLocationOnScreen(location);           //抓圖片在螢幕的座標img
+//                        int a = location[0];
+//                        int b = location[1];
+                        Log.d("觸空的位置", String.valueOf(x) + "~~" + String.valueOf(y));
+
+
+                        break;
+
+                    case MotionEvent.ACTION_MOVE:// 移動圖片時
+
+                        //getX()：是獲取當前控件(View)的座標
+                        //getRawX()：是獲取相對顯示螢幕左上角的座標
+                        mx = (int) (event.getRawX() - x);
+                        my = (int) (event.getRawY() - y-500);
+                        v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
+                        Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        ux = event.getX();
+                        uy = event.getY();
+
+
+
+                        break;
+
+
+                }
+
+
+                return true;
+
+
             }
         });
 
@@ -122,4 +171,7 @@ public class ShowInWebview extends ActionBarActivity {
             }
         }
     };
+
+
+
 }

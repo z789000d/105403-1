@@ -53,6 +53,7 @@ public class Version extends Activity {
                         mx = (int) (event.getRawX() - x);
                         my = (int) (event.getRawY() - y);
                         v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
+                        Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
                         break;
 
                     case MotionEvent.ACTION_UP:
