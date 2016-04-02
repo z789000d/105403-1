@@ -25,4 +25,5 @@ dependencies {
     // compile files('libs/jsoup-1.8.3.jar')
     //compile files('libs/android-support-v4.jar')
     compile files('/home/aabb/105403/libs/jsoup-1.8.3.jar')
+    compile files('C:/105403/105403/libs/jsoup-1.8.3.jar')
 }

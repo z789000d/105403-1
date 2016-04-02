@@ -6,6 +6,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,11 +26,14 @@ public class ShowInWebview extends ActionBarActivity {
     Button  b01;
     Thread th;
     String  geturl;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_in_webview);
+        final DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+
         w01= (WebView) findViewById(R.id.w01);
         w01.getSettings().setJavaScriptEnabled(true); //可解讀javascript
         w01.getSettings().setSupportZoom(true);    //可放大縮小
@@ -81,6 +85,8 @@ public class ShowInWebview extends ActionBarActivity {
             private int mx, my; // 圖片被拖曳的X ,Y軸距離長度
 
 
+
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 // Log.e("View", v.toString());
@@ -103,7 +109,7 @@ public class ShowInWebview extends ActionBarActivity {
                         //getX()：是獲取當前控件(View)的座標
                         //getRawX()：是獲取相對顯示螢幕左上角的座標
                         mx = (int) (event.getRawX() - x);
-                        my = (int) (event.getRawY() - y-500);
+                        my = (int) (event.getRawY() - y-(metrics.heightPixels/3.84));
                         v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
                         Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
                         break;
