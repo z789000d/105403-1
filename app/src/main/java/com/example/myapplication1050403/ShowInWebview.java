@@ -1,34 +1,31 @@
 package com.example.myapplication1050403;
 
 import java.net.URL;
-import java.net.URLDecoder;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import android.app.Activity;
-import android.content.Context;
+import org.jsoup.nodes.Element;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Html;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnTouchListener;
 
 public class ShowInWebview extends ActionBarActivity {
 
     URL url;
 
-    WebView w01;
+    WebView w01,w02;
     EditText ed01;
     Button  b01;
     Thread th;
-    String te01, geturl;
+    String  geturl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +53,15 @@ public class ShowInWebview extends ActionBarActivity {
 
 
         });
+        w02 = (WebView) findViewById(R.id.w02);
+        w02.getSettings().setJavaScriptEnabled(true); //可解讀javascript
+        w02.getSettings().setSupportZoom(true);    //可放大縮小
+        w02.getSettings().setBuiltInZoomControls(true); //可progress
+
 
         ed01 = (EditText) findViewById(R.id.ed01);
         b01 = (Button) findViewById(R.id.b01);
+
 
         b01.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,31 +75,95 @@ public class ShowInWebview extends ActionBarActivity {
         });
 
 
+        w01.setOnTouchListener(new OnTouchListener() {
+            private float x, y;    // 原本圖片存在的X,Y軸位置
+            private float ux, uy;
+            private int mx, my; // 圖片被拖曳的X ,Y軸距離長度
+
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Log.e("View", v.toString());
+                switch (event.getAction()) {          //判斷觸控的動作
+
+                    case MotionEvent.ACTION_DOWN:// 按下圖片時
+                        x = event.getX();                  //觸控的X軸位置
+                        y = event.getY();                  //觸控的Y軸位置
+//                        int[] location = new int[2];
+//                        w01.getLocationOnScreen(location);           //抓圖片在螢幕的座標img
+//                        int a = location[0];
+//                        int b = location[1];
+                        Log.d("觸空的位置", String.valueOf(x) + "~~" + String.valueOf(y));
+
+
+                        break;
+
+                    case MotionEvent.ACTION_MOVE:// 移動圖片時
+
+                        //getX()：是獲取當前控件(View)的座標
+                        //getRawX()：是獲取相對顯示螢幕左上角的座標
+                        mx = (int) (event.getRawX() - x);
+                        my = (int) (event.getRawY() - y-500);
+                        v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
+                        Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        ux = event.getX();
+                        uy = event.getY();
+
+
+
+                        break;
+
+
+                }
+
+
+                return true;
+
+
+            }
+        });
+
+
 
 
 
 
     }
     private Runnable r0=new Runnable(){
+        Element title[] = new Element[10];
+        String te[] = new String[10];
+        String te00;
+
         public void run(){
             try {
                 url=new URL( geturl);
                 Document doc =  Jsoup.parse(url, 3000);        //連結該網址
-                Elements title = doc.select("li");//抓取為tr且有class屬性的所有Tag
-                te01 = title.toString();
+
+                for (int x=5;x<7;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的li
+
+                    title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
+                    te[x] = title[x].toString();
+
 
 //                for(int i=0;i<title.size();i++){            //用FOR個別抓取選定的Tag內容
 //                    Elements title_select=title.get(i).select("title");//選擇第i個後選取所有為td的Tag
 //                    te01=title_select.get(0).text();        //只抓取第 0,2,3 Tag的文字
 //                    te02=title_select.get(2).text();
 //                    te03=title_select.get(3).text();
-                runOnUiThread(new Runnable() {             //將內容交給UI執行緒做顯示
-                    public void run(){
-                        w01.loadDataWithBaseURL("", te01, "text/html", "UTF-8","");
-                        Log.e("123", te01);
-                    }
-                });
-                Thread.sleep(100);    //避免執行緒跑太快而UI執行續顯示太慢,覆蓋掉te01~03內容所以設個延遲,也可以使用AsyncTask-異步任務
+                }
+                    runOnUiThread(new Runnable() {             //將內容交給UI執行緒做顯示
+                        public void run() {
+                            w01.loadDataWithBaseURL("", te[5], "text/html", "UTF-8", "");
+                            Log.e("123", te[5]);
+                            w02.loadDataWithBaseURL("", te[6], "text/html", "UTF-8", "");
+                           Log.e("123", te[6]);
+                        }
+                    });
+                    Thread.sleep(100);    //避免執行緒跑太快而UI執行續顯示太慢,覆蓋掉te01~03內容所以設個延遲,也可以使用AsyncTask-異步任務
+
 //             }
             } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -104,4 +171,7 @@ public class ShowInWebview extends ActionBarActivity {
             }
         }
     };
+
+
+
 }
