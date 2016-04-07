@@ -108,7 +108,6 @@ public class ShowInWebview extends ActionBarActivity {
                 v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
                 Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
 
-
             }
 
 
