@@ -31,13 +31,14 @@ public class ShowInWebview extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_in_webview);
         final DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        getWindowManager().getDefaultDisplay().getMetrics(metrics); // 抓螢幕大小
+
 
 
         w01= (WebView) findViewById(R.id.w01);
         w01.getSettings().setJavaScriptEnabled(true); //可解讀javascript
         w01.getSettings().setSupportZoom(true);    //可放大縮小
-        w01.getSettings().setBuiltInZoomControls(true); //可progress
+//        w01.getSettings().setBuiltInZoomControls(true); //可progress
 
         w01.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
@@ -60,9 +61,7 @@ public class ShowInWebview extends ActionBarActivity {
         w02 = (WebView) findViewById(R.id.w02);
         w02.getSettings().setJavaScriptEnabled(true); //可解讀javascript
         w02.getSettings().setSupportZoom(true);    //可放大縮小
-        w02.getSettings().setBuiltInZoomControls(true); //可progress
-
-
+       // w02.getSettings().setBuiltInZoomControls(true); //可progress
         ed01 = (EditText) findViewById(R.id.ed01);
         b01 = (Button) findViewById(R.id.b01);
 
@@ -78,8 +77,58 @@ public class ShowInWebview extends ActionBarActivity {
             }
         });
 
+    w01.setOnTouchListener(new OnTouchListener() {
+        private float x, y;    // 原本圖片存在的X,Y軸位置
+        private float ux, uy;
+        private int mx, my; // 圖片被拖曳的X ,Y軸距離長度
 
-        w01.setOnTouchListener(new OnTouchListener() {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            long time = event.getEventTime() - event.getDownTime();
+            // Log.e("View", v.toString());
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {          //判斷觸控的動作
+
+                x = event.getX();                  //觸控的X軸位置
+                y = event.getY();                  //觸控的Y軸位置
+//                        int[] location = new int[2];
+//                        w01.getLocationOnScreen(location);           //抓圖片在螢幕的座標img
+//                        int a = location[0];
+//                        int b = location[1];
+                Log.d("觸空的位置", String.valueOf(x) + "~~" + String.valueOf(y));
+
+
+            }
+            if (event.getAction() == MotionEvent.ACTION_MOVE && time > 500) {// 移動圖片時
+
+                //getX()：是獲取當前控件(View)的座標
+                //getRawX()：是獲取相對顯示螢幕左上角的座標
+                mx = (int) (event.getRawX() - x);
+                my = (int) (event.getRawY() - y - (metrics.heightPixels / 4.784));
+                v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
+                Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
+
+
+            }
+
+
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                ux = event.getX();
+                uy = event.getY();
+                Log.d("3333", String.valueOf(time));
+
+            }
+
+
+            if (time < 100) {
+                return false;
+            } else return true;
+
+
+        }
+    });
+
+        w02.setOnTouchListener(new OnTouchListener() {
             private float x, y;    // 原本圖片存在的X,Y軸位置
             private float ux, uy;
             private int mx, my; // 圖片被拖曳的X ,Y軸距離長度
@@ -87,46 +136,52 @@ public class ShowInWebview extends ActionBarActivity {
 
 
 
+
+
+
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                long time = event.getEventTime()-event.getDownTime();
                 // Log.e("View", v.toString());
-                switch (event.getAction()) {          //判斷觸控的動作
+                if  (event.getAction()==MotionEvent.ACTION_DOWN ) {          //判斷觸控的動作
 
-                    case MotionEvent.ACTION_DOWN:// 按下圖片時
-                        x = event.getX();                  //觸控的X軸位置
-                        y = event.getY();                  //觸控的Y軸位置
+                    x = event.getX();                  //觸控的X軸位置
+                    y = event.getY();                  //觸控的Y軸位置
 //                        int[] location = new int[2];
 //                        w01.getLocationOnScreen(location);           //抓圖片在螢幕的座標img
 //                        int a = location[0];
 //                        int b = location[1];
-                        Log.d("觸空的位置", String.valueOf(x) + "~~" + String.valueOf(y));
+                    Log.d("觸空的位置", String.valueOf(x) + "~~" + String.valueOf(y));
 
 
-                        break;
+                }
+                if (event.getAction()==MotionEvent.ACTION_MOVE && time > 500 ) {// 移動圖片時
 
-                    case MotionEvent.ACTION_MOVE:// 移動圖片時
-
-                        //getX()：是獲取當前控件(View)的座標
-                        //getRawX()：是獲取相對顯示螢幕左上角的座標
-                        mx = (int) (event.getRawX() - x);
-                        my = (int) (event.getRawY() - y-(metrics.heightPixels/3.84));
-                        v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
-                        Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
-                        break;
-
-                    case MotionEvent.ACTION_UP:
-                        ux = event.getX();
-                        uy = event.getY();
-
-
-
-                        break;
+                    //getX()：是獲取當前控件(View)的座標
+                    //getRawX()：是獲取相對顯示螢幕左上角的座標
+                    mx = (int) (event.getRawX() - x);
+                    my = (int) (event.getRawY() - y-(metrics.heightPixels/4.784));
+                    v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
+                    Log.d("移動的距離", String.valueOf(mx) + "~~" + String.valueOf(my));
 
 
                 }
 
 
-                return true;
+                if (event.getAction()==MotionEvent.ACTION_UP){
+                    ux = event.getX();
+                    uy = event.getY();
+                    Log.d("3333",String.valueOf(time));
+
+                }
+
+
+                if (time < 100 ){
+                    return  false;
+                }
+                else return true;
+
 
 
             }
