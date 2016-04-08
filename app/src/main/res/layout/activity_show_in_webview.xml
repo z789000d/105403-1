@@ -33,29 +33,106 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lin1"
+
         >
+
         <WebView
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/w01"
 
             />
+
         <WebView
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/w02"
 
-            >
+            android:layout_below="@+id/w01"
+            android:layout_alignParentStart="true" />
 
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w03"
 
+            android:layout_below="@+id/w02"
+            android:layout_alignParentStart="true" />
+
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w04"
+
+            android:layout_below="@+id/w03"
+            android:layout_alignParentStart="true" />
+
+        <WebView
+            android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/w05"
+
+            android:layout_below="@+id/w04"
+            android:layout_alignParentStart="true" />
+
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w06"
+
+            android:layout_below="@+id/w05"
+            android:layout_alignParentStart="true" />
+
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w07"
+
+            android:layout_below="@+id/w06"
+            android:layout_alignParentStart="true" />
+
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w08"
+
+            android:layout_below="@+id/w07"
+            android:layout_alignParentStart="true">
         </WebView>
 
-    </LinearLayout>
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w09"
+
+            android:layout_above="@+id/w04"
+            android:layout_toStartOf="@+id/w05">
+        </WebView>
+
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w011"
+            android:layout_alignTop="@+id/w02"
+            android:layout_toEndOf="@+id/w02">
+        </WebView>
+
+        <WebView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/w010"
+
+            android:layout_above="@+id/w02"
+            android:layout_toEndOf="@+id/w01">
+        </WebView>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
