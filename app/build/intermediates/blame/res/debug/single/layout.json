@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/layout/activity_join_next.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/layout/activity_join_next.xml"
+    },
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_join.xml",
+        "source": "/home/wei/105403/app/src/main/res/layout/activity_join.xml"
+    },
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/layout/grid_item.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/layout/grid_item.xml"
+    },
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/home/wei/105403/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_forget.xml",
+        "source": "/home/wei/105403/app/src/main/res/layout/activity_forget.xml"
+    },
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/layout/activity_join.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/layout/activity_join.xml"
+    },
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/layout/activity_showinwebview.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/layout/activity_showinwebview.xml"
+    },
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_join_next.xml",
+        "source": "/home/wei/105403/app/src/main/res/layout/activity_join_next.xml"
+    },
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/layout/grid_item.xml",
+        "source": "/home/wei/105403/app/src/main/res/layout/grid_item.xml"
+    },
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_showinwebview.xml",
+        "source": "/home/wei/105403/app/src/main/res/layout/activity_showinwebview.xml"
+    },
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/layout/activity_forget.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/layout/activity_forget.xml"
+    }
+]

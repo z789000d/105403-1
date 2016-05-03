@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/color/text_color.xml",
+        "source": "/home/wei/105403/app/src/main/res/color/text_color.xml"
+    },
+    {
+        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/color/text_color.xml",
+        "source": "/home/wei/DragGridView/app/src/main/res/color/text_color.xml"
+    }
+]
