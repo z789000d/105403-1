@@ -108,6 +108,13 @@
                 android:text="忘記密碼"
                 android:textColor="@color/text_color"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text3"
+                android:text="22222"
+                android:textColor="@color/text_color"
+                />
 
         </LinearLayout>
 

@@ -11,7 +11,8 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int text_color=0x7f070000;
+        public static final int color_text_view=0x7f070000;
+        public static final int text_color=0x7f070001;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f050000;
@@ -19,41 +20,70 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
-        public static final int webview_border=0x7f020001;
+        public static final int icon=0x7f020001;
+        public static final int member_imview=0x7f020002;
+        public static final int register_button=0x7f020003;
+        public static final int register_cnfpassword=0x7f020004;
+        public static final int register_imview=0x7f020005;
+        public static final int register_main=0x7f020006;
+        public static final int register_password=0x7f020007;
+        public static final int register_uname=0x7f020008;
+        public static final int registration_background=0x7f020009;
+        public static final int webview_border=0x7f02000a;
     }
     public static final class id {
-        public static final int b01=0x7f090011;
-        public static final int button=0x7f090009;
-        public static final int button1=0x7f09000c;
-        public static final int button2=0x7f09000b;
-        public static final int dragGridView=0x7f090012;
-        public static final int ed01=0x7f090010;
-        public static final int editext1=0x7f090005;
-        public static final int editext2=0x7f090006;
-        public static final int editext3=0x7f090007;
-        public static final int editext4=0x7f090008;
-        public static final int editext5=0x7f09000a;
-        public static final int lin1=0x7f09000f;
-        public static final int menu_settings=0x7f090014;
-        public static final int text1=0x7f09000d;
-        public static final int text2=0x7f09000e;
+        public static final int Register_tv=0x7f09001f;
+        public static final int ScrollView=0x7f090016;
+        public static final int action_settings=0x7f090023;
+        public static final int b01=0x7f09000d;
+        public static final int button=0x7f09000b;
+        public static final int button1=0x7f09000e;
+        public static final int button2=0x7f09000a;
+        public static final int cnfpasswd_edtext=0x7f090020;
+        public static final int dragGridView=0x7f090014;
+        public static final int ed01=0x7f090013;
+        public static final int editext1=0x7f090001;
+        public static final int editext2=0x7f090003;
+        public static final int editext3=0x7f090005;
+        public static final int editext4=0x7f090006;
+        public static final int editext5=0x7f090008;
+        public static final int email_edtext=0x7f090018;
+        public static final int forgot_passwd_tv=0x7f09001e;
+        public static final int lin1=0x7f090012;
+        public static final int list_view=0x7f09000c;
+        public static final int login_button=0x7f090019;
+        public static final int member_login_tv=0x7f090017;
+        public static final int menu_settings=0x7f090022;
+        public static final int passwd_edtext=0x7f09001d;
+        public static final int register_button=0x7f090021;
+        public static final int text1=0x7f09000f;
+        public static final int text2=0x7f090010;
+        public static final int text3=0x7f090011;
         public static final int textView=0x7f090000;
-        public static final int textView2=0x7f090001;
-        public static final int textView3=0x7f090002;
-        public static final int textView4=0x7f090003;
-        public static final int textView5=0x7f090004;
-        public static final int words_home_function_1=0x7f090013;
+        public static final int textView2=0x7f090002;
+        public static final int textView3=0x7f090004;
+        public static final int textView4=0x7f090007;
+        public static final int textView5=0x7f090009;
+        public static final int username_edtext=0x7f09001c;
+        public static final int view=0x7f090015;
+        public static final int view_1=0x7f09001a;
+        public static final int words_home_function_1=0x7f09001b;
     }
     public static final class layout {
         public static final int activity_forget=0x7f030000;
         public static final int activity_join=0x7f030001;
         public static final int activity_join_next=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_showinwebview=0x7f030004;
-        public static final int grid_item=0x7f030005;
+        public static final int activity_list=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_showinwebview=0x7f030005;
+        public static final int forgot=0x7f030006;
+        public static final int grid_item=0x7f030007;
+        public static final int login=0x7f030008;
+        public static final int register=0x7f030009;
     }
     public static final class menu {
         public static final int activity_main=0x7f080000;
+        public static final int menu_main=0x7f080001;
     }
     public static final class string {
         public static final int app_name=0x7f060000;

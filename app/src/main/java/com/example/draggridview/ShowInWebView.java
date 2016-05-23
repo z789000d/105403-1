@@ -74,18 +74,26 @@ public class ShowInWebView extends Activity {
 							Element title[] = new Element[100];
 							try {
 
-								Log.e("thb","start");
+								Log.e("thb", "start");
 								url=new URL(geturl);
 								Document doc =  Jsoup.parse(url, 3000);        //連結該網址
-								doc.select("img").removeAttr("src");
+//								doc.select("img").removeAttr("src");zz
+								doc.select("div").removeAttr("class");
+								doc.select("span").remove();			//去除不要的屬性
+
+
 
 								for (int x=1;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
-
 									title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
+									Log.d("div",doc.select("div").get(x).toString());
 									te[x] = title[x].toString();
-									//Log.e("123123",te[x]);
+									//以下去除div標籤
+									te[x] = te[x].replace("<div>", "");
+									te[x] = te[x].replace("</div>","");
+									Log.e("123123",te[x]);
 									//Log.e("123123", Integer.toString(cloclk));
 								}
+
 								Log.e("thb","end");
 							} catch (Exception e) {
 								// TODO Auto-generated catch block

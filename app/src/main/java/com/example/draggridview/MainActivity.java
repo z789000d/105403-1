@@ -18,68 +18,126 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.login);
         TextView text1 = (TextView) findViewById(R.id.text1);
-        TextView text2 = (TextView) findViewById(R.id.text2);
-        Button button1 = (Button) findViewById(R.id.button1);
-
-
+        TextView text2 = (TextView) findViewById(R.id.forgot_passwd_tv);
+        TextView text3 = (TextView) findViewById(R.id.text3);
+        Button button1 = (Button) findViewById(R.id.login_button);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,ShowInWebView.class);
                 startActivity(intent);
-                MainActivity.this.finish();
+                //MainActivity.this.finish();
              /*點選button1進入顯示原始碼畫面*/
             }
         });
-
-
         text1.setOnClickListener(new TextView.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-//
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, Join.class);
                 startActivity(intent);
-                MainActivity.this.finish();
+                //MainActivity.this.finish();
                 /*點選加入會員進入加入會員*/
-
             }
         });
-
         text2.setOnClickListener(new TextView.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, Forget.class);
                 startActivity(intent);
-                MainActivity.this.finish();
+                //MainActivity.this.finish();
               /*點選忘記密馬進入忘記密碼*/
-
-
-
             }
 
         });
+         text3.setOnClickListener(new TextView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, List.class);
+                startActivity(intent);
+                //MainActivity.this.finish();
+              /*點選忘記密馬進入忘記密碼*/
+            }
 
-
-
+        });
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        TextView text1 = (TextView) findViewById(R.id.text1);
+//        TextView text2 = (TextView) findViewById(R.id.text2);
+//        TextView text3 = (TextView) findViewById(R.id.text3);
+//        Button button1 = (Button) findViewById(R.id.button1);
+//
+//        button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(MainActivity.this,ShowInWebView.class);
+//                startActivity(intent);
+//                MainActivity.this.finish();
+//             /*點選button1進入顯示原始碼畫面*/
+//            }
+//        });
+//        text1.setOnClickListener(new TextView.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(MainActivity.this, Join.class);
+//                startActivity(intent);
+//                MainActivity.this.finish();
+//                /*點選加入會員進入加入會員*/
+//            }
+//        });
+//        text2.setOnClickListener(new TextView.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(MainActivity.this, Forget.class);
+//                startActivity(intent);
+//                MainActivity.this.finish();
+//              /*點選忘記密馬進入忘記密碼*/
+//            }
+//
+//        });
+//        text3.setOnClickListener(new TextView.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(MainActivity.this, List.class);
+//                startActivity(intent);
+//                MainActivity.this.finish();
+//              /*點選忘記密馬進入忘記密碼*/
+//            }
+//
+//        });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
 

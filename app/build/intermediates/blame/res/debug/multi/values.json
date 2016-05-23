@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/wei/105403/app/build/intermediates/res/merged/debug/values/values.xml",
+        "outputFile": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/values/values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/dimens.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/dimens.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 164
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/dimens.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/dimens.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -45,17 +45,17 @@
                     "startLine": 4,
                     "startColumn": 4,
                     "startOffset": 169,
-                    "endColumn": 49,
-                    "endOffset": 214
+                    "endColumn": 40,
+                    "endOffset": 205
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/strings.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 58,
-                        "endColumn": 49,
-                        "endOffset": 103
+                        "startOffset": 59,
+                        "endColumn": 40,
+                        "endOffset": 95
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 219,
+                    "startOffset": 210,
                     "endColumn": 52,
-                    "endOffset": 267
+                    "endOffset": 258
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/strings.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 109,
+                        "startOffset": 101,
                         "endColumn": 52,
-                        "endOffset": 157
+                        "endOffset": 149
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 272,
+                    "startOffset": 263,
                     "endColumn": 50,
-                    "endOffset": 318
+                    "endOffset": 309
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/strings.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 163,
+                        "startOffset": 155,
                         "endColumn": 50,
-                        "endOffset": 209
+                        "endOffset": 201
                     }
                 }
             },
@@ -101,13 +101,13 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 323,
+                    "startOffset": 314,
                     "endLine": 13,
                     "endColumn": 12,
-                    "endOffset": 609
+                    "endOffset": 600
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/styles.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -122,13 +122,13 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 614,
+                    "startOffset": 605,
                     "endLine": 16,
                     "endColumn": 12,
-                    "endOffset": 769
+                    "endOffset": 760
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values/styles.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -142,7 +142,7 @@
         ]
     },
     {
-        "outputFile": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/values/values.xml",
+        "outputFile": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/values/values.xml",
         "map": [
             {
                 "to": {
@@ -153,7 +153,7 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/dimens.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/dimens.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -172,7 +172,7 @@
                     "endOffset": 164
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/dimens.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/dimens.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -187,17 +187,17 @@
                     "startLine": 4,
                     "startColumn": 4,
                     "startOffset": 169,
-                    "endColumn": 49,
-                    "endOffset": 214
+                    "endColumn": 40,
+                    "endOffset": 205
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/strings.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 58,
-                        "endColumn": 49,
-                        "endOffset": 103
+                        "startOffset": 59,
+                        "endColumn": 40,
+                        "endOffset": 95
                     }
                 }
             },
@@ -205,18 +205,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 219,
+                    "startOffset": 210,
                     "endColumn": 52,
-                    "endOffset": 267
+                    "endOffset": 258
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/strings.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 109,
+                        "startOffset": 101,
                         "endColumn": 52,
-                        "endOffset": 157
+                        "endOffset": 149
                     }
                 }
             },
@@ -224,18 +224,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 272,
+                    "startOffset": 263,
                     "endColumn": 50,
-                    "endOffset": 318
+                    "endOffset": 309
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/strings.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 163,
+                        "startOffset": 155,
                         "endColumn": 50,
-                        "endOffset": 209
+                        "endOffset": 201
                     }
                 }
             },
@@ -243,13 +243,13 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 323,
+                    "startOffset": 314,
                     "endLine": 13,
                     "endColumn": 12,
-                    "endOffset": 609
+                    "endOffset": 600
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/styles.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -264,13 +264,13 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 614,
+                    "startOffset": 605,
                     "endLine": 16,
                     "endColumn": 12,
-                    "endOffset": 769
+                    "endOffset": 760
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values/styles.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,

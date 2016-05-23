@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/wei/105403/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml",
+        "outputFile": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "/home/wei/105403/app/src/main/res/values-v14/styles.xml",
+                    "file": "/home/aabb/105403_test/app/src/main/res/values-v14/styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "outputFile": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml",
+        "outputFile": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml",
         "map": [
             {
                 "to": {
@@ -38,7 +38,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "/home/wei/DragGridView/app/src/main/res/values-v14/styles.xml",
+                    "file": "/home/xpizta/androidproject/105403_test/app/src/main/res/values-v14/styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,

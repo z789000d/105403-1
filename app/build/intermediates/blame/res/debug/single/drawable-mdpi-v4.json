@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/wei/105403/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
-        "source": "/home/wei/105403/app/src/main/res/drawable-mdpi/ic_launcher.png"
+        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/home/aabb/105403_test/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/wei/DragGridView/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
-        "source": "/home/wei/DragGridView/app/src/main/res/drawable-mdpi/ic_launcher.png"
+        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable-mdpi/ic_launcher.png"
     }
 ]
