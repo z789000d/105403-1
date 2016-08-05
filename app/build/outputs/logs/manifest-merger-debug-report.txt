@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:2:1-39:12
+ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:2:1-41:12
 	package
 		ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml
@@ -46,7 +46,7 @@ ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:16:5-88
 	android:name
 		ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:16:30-85
 application
-ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:18:5-37:19
+ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:18:5-39:19
 	android:label
 		ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:21:9-41
 	android:allowBackup
@@ -91,3 +91,7 @@ activity#com.example.draggridview.List
 ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:36:9-51
 	android:name
 		ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:36:19-39
+activity#com.example.draggridview.ListViewCheckboxesActivity
+ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:37:9-63
+	android:name
+		ADDED from /home/aabb/105403_test/app/src/main/AndroidManifest.xml:37:19-61

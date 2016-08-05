@@ -16,6 +16,10 @@
         "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/layout/activity_showinwebview.xml"
     },
     {
+        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/home/aabb/105403_test/app/src/main/res/layout/main.xml"
+    },
+    {
         "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/layout/activity_list.xml",
         "source": "/home/aabb/105403_test/app/src/main/res/layout/activity_list.xml"
     },
@@ -38,6 +42,10 @@
     {
         "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/layout/activity_join.xml",
         "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/layout/activity_join.xml"
+    },
+    {
+        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/layout/state_info.xml",
+        "source": "/home/aabb/105403_test/app/src/main/res/layout/state_info.xml"
     },
     {
         "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/layout/forgot.xml",

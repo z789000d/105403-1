@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, List.class);
+                intent.setClass(MainActivity.this, ListViewCheckboxesActivity.class);
                 startActivity(intent);
                 //MainActivity.this.finish();
               /*點選忘記密馬進入忘記密碼*/

@@ -34,6 +34,8 @@
         <activity android:name=".JoinNext" />
         <activity android:name=".Forget" />
         <activity android:name=".List"></activity>
+        <activity android:name=".ListViewCheckboxesActivity"/>
+
     </application>
 
 </manifest>
