@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +55,8 @@ public class ListViewCheckboxesActivity extends Activity
                     url=new URL("http://www.ntub.edu.tw/bin/home.php");
                     Document doc =  Jsoup.parse(url, 3000);        //連結該網址
                     doc.select("img").removeAttr("src");
+                    doc.select("div").removeAttr("class");
+                    doc.select("span").remove();			//去除不要的屬性
 
                     for (int x=1;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
@@ -157,8 +161,8 @@ public class ListViewCheckboxesActivity extends Activity
                         CheckBox cb = (CheckBox) v;
                         States _state = (States) cb.getTag();
 
-                        Toast.makeText(getApplicationContext(), "Clicked on Checkbox: " + cb.getText() + " is " + cb.isChecked(),
-                                Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getApplicationContext(), "Clicked on Checkbox: " + cb.getText() + " is " + cb.isChecked(),
+//                                Toast.LENGTH_LONG).show();
 
                         _state.setSelected(cb.isChecked());
                     }
@@ -173,7 +177,7 @@ public class ListViewCheckboxesActivity extends Activity
             States state = stateList.get(position);
 
             holder.code.setText(" (" + state.getCode() + ")");
-            holder.name.setText(state.getName());
+            holder.name.setText(Html.fromHtml(state.getName()));
             holder.name.setChecked(state.isSelected());
 
             holder.name.setTag(state);
@@ -196,9 +200,10 @@ public class ListViewCheckboxesActivity extends Activity
             {
 
                 StringBuffer responseText = new StringBuffer();
-                responseText.append("The following were selected...\n");
+               // responseText.append("The following were selected...\n");
 
                 ArrayList<States> stateList = dataAdapter.stateList;
+
 
                 for(int i=0;i<stateList.size();i++)
                 {
@@ -206,13 +211,22 @@ public class ListViewCheckboxesActivity extends Activity
 
                     if(state.isSelected())
                     {
-                        responseText.append("\n" + state.getName());
+                        responseText.append("\n"+"----" + state.getName());
                     }
                 }
+                String ArrayText =  responseText.toString();
 
-                Toast.makeText(getApplicationContext(),
-                        responseText, Toast.LENGTH_LONG).show();
+
+//                Toast.makeText(getApplicationContext(),
+//                        responseText, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                intent.putExtra("Array",ArrayText);
+                intent.setClass(ListViewCheckboxesActivity.this,ShowInWebView.class);
+                startActivity(intent);
             }
+
+
         });
     }
 

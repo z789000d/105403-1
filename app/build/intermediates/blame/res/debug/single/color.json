@@ -1,18 +1,10 @@
 [
     {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/color/text_color.xml",
-        "source": "/home/aabb/105403_test/app/src/main/res/color/text_color.xml"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/color/text_color.xml",
+        "source": "/Users/wei/105403/app/src/main/res/color/text_color.xml"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/color/color_text_view.xml",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/color/color_text_view.xml"
-    },
-    {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/color/color_text_view.xml",
-        "source": "/home/aabb/105403_test/app/src/main/res/color/color_text_view.xml"
-    },
-    {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/color/text_color.xml",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/color/text_color.xml"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/color/color_text_view.xml",
+        "source": "/Users/wei/105403/app/src/main/res/color/color_text_view.xml"
     }
 ]

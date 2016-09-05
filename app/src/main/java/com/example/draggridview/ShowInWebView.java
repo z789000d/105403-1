@@ -25,8 +25,6 @@ public class ShowInWebView extends Activity {
 	List<HashMap<String, Object>> dataSourceList = new ArrayList<HashMap<String, Object>>();
 	URL url;
 
-	EditText ed01;
-	Button b01;
 	String  geturl;
 	DragGridView mDragGridView;
 	RecordAdapter mSimpleAdapter;
@@ -45,7 +43,9 @@ public class ShowInWebView extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_showinwebview);
-
+		Bundle bundle = this.getIntent().getExtras();
+		final String Array = bundle.getString("Array");
+		final String[] ArrayTextSplit = Array.split("----");
 
 		mSimpleAdapter = new RecordAdapter(this,dataSourceList);
 //		LayoutInflater inflater = getLayoutInflater();
@@ -56,41 +56,22 @@ public class ShowInWebView extends Activity {
 		mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
 
 
-		ed01 = (EditText) findViewById(R.id.ed01);
-		b01 = (Button) findViewById(R.id.b01);
-
-
-		b01.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-				geturl = ed01.getText().toString();
-				ed01.setText(null); //重設內容
-
 				Thread threadc =new Thread(){
 
 					Thread threadB = new Thread(new Runnable() {
 						public void run(){
-							Element title[] = new Element[100];
 							try {
 
-								Log.e("thb", "start");
-								url=new URL(geturl);
-								Document doc =  Jsoup.parse(url, 3000);        //連結該網址
-//								doc.select("img").removeAttr("src");zz
-								doc.select("div").removeAttr("class");
-								doc.select("span").remove();			//去除不要的屬性
 
 
 
-								for (int x=1;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
-									title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
-									Log.d("div",doc.select("div").get(x).toString());
-									te[x] = title[x].toString();
+								for (int x=0; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+
 									//以下去除div標籤
-									te[x] = te[x].replace("<div>", "");
-									te[x] = te[x].replace("</div>","");
-									Log.e("123123",te[x]);
+									ArrayTextSplit[x] = ArrayTextSplit[x].replace("<div>", "");
+									ArrayTextSplit[x] = ArrayTextSplit[x].replace("</div>","");
+
+									Log.e("22",ArrayTextSplit[x]);
 									//Log.e("123123", Integer.toString(cloclk));
 								}
 
@@ -108,9 +89,9 @@ public class ShowInWebView extends Activity {
 						try {
 							threadB.join();
 							Log.e("tha", "start");
-							for (int i = 1; i < 100; i++) {
+							for (int x=0; x<ArrayTextSplit.length ;x++) {
 								HashMap<String, Object> itemHashMap = new HashMap<String, Object>();
-								itemHashMap.put("words", te[i]);
+								itemHashMap.put("words", ArrayTextSplit[x]);
 								dataSourceList.add(itemHashMap);
 								handler.post(runnableUi);
 							}
@@ -125,11 +106,11 @@ public class ShowInWebView extends Activity {
 				threadc.start();
 
 			}
-		});
 
 
 
-	}
+
+
 
 
 	Runnable runnableUi = new Runnable(){

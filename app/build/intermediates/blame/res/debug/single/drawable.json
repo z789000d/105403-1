@@ -1,82 +1,42 @@
 [
     {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/register_password.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/register_password.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_uname.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_uname.png"
     },
     {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/register_button.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/register_button.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_cnfpassword.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_cnfpassword.png"
     },
     {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/webview_border.xml",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/webview_border.xml"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/member_imview.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/member_imview.png"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/register_button.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/register_button.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_password.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_password.png"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/icon.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/icon.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/icon.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/icon.png"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/register_uname.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/register_uname.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_button.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_button.png"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/register_password.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/register_password.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_main.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_main.png"
     },
     {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/register_imview.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/register_imview.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/registration_background.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/registration_background.png"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/member_imview.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/member_imview.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_imview.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_imview.png"
     },
     {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/register_cnfpassword.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/register_cnfpassword.png"
-    },
-    {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/register_main.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/register_main.png"
-    },
-    {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/register_imview.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/register_imview.png"
-    },
-    {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/webview_border.xml",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/webview_border.xml"
-    },
-    {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/registration_background.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/registration_background.png"
-    },
-    {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/register_main.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/register_main.png"
-    },
-    {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/member_imview.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/member_imview.png"
-    },
-    {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/register_uname.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/register_uname.png"
-    },
-    {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/registration_background.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/registration_background.png"
-    },
-    {
-        "merged": "/home/aabb/105403_test/app/build/intermediates/res/merged/debug/drawable/icon.png",
-        "source": "/home/aabb/105403_test/app/src/main/res/drawable/icon.png"
-    },
-    {
-        "merged": "/home/xpizta/androidproject/105403_test/app/build/intermediates/res/merged/debug/drawable/register_cnfpassword.png",
-        "source": "/home/xpizta/androidproject/105403_test/app/src/main/res/drawable/register_cnfpassword.png"
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/webview_border.xml",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/webview_border.xml"
     }
 ]
