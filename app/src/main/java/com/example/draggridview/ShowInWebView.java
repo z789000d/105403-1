@@ -65,7 +65,7 @@ public class ShowInWebView extends Activity {
 
 
 
-								for (int x=0; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+								for (int x=1; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
 									//以下去除div標籤
 									ArrayTextSplit[x] = ArrayTextSplit[x].replace("<div>", "");
@@ -89,7 +89,7 @@ public class ShowInWebView extends Activity {
 						try {
 							threadB.join();
 							Log.e("tha", "start");
-							for (int x=0; x<ArrayTextSplit.length ;x++) {
+							for (int x=1; x<ArrayTextSplit.length ;x++) {
 								HashMap<String, Object> itemHashMap = new HashMap<String, Object>();
 								itemHashMap.put("words", ArrayTextSplit[x]);
 								dataSourceList.add(itemHashMap);

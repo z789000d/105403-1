@@ -6,19 +6,23 @@
     android:gravity="center"
     android:background="#ffeeeeee">
 
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:padding="10dp"
-        android:text="Some Indian States" android:textSize="20sp" />
-    <Button android:id="@+id/b01"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="lected" />
+        android:id="@+id/b01"
+        android:text="顯示清單"
+        />
 
     <Button android:id="@+id/findSelected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find states that are Selected" />
+        android:text="確定" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtsearch"
 
+        />
     <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 

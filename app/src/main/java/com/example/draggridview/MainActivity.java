@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this,ShowInWebView.class);
+                intent.setClass(MainActivity.this,MainView.class);
                 startActivity(intent);
                 //MainActivity.this.finish();
              /*點選button1進入顯示原始碼畫面*/

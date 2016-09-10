@@ -33,9 +33,10 @@
         <activity android:name=".Join" />
         <activity android:name=".JoinNext" />
         <activity android:name=".Forget" />
-        <activity android:name=".List"></activity>
-        <activity android:name=".ListViewCheckboxesActivity"/>
-
+        <activity android:name=".List" />
+        <activity android:name=".ListViewCheckboxesActivity" />
+        <activity android:name=".MainView" />
+        <activity android:name=".NewUrl"></activity>
     </application>
 
 </manifest>

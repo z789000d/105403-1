@@ -36,6 +36,8 @@
         <activity android:name="com.example.draggridview.Forget" />
         <activity android:name="com.example.draggridview.List" />
         <activity android:name="com.example.draggridview.ListViewCheckboxesActivity" />
+        <activity android:name="com.example.draggridview.MainView" />
+        <activity android:name="com.example.draggridview.NewUrl" />
     </application>
 
 </manifest>
