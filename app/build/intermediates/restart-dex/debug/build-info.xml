@@ -4,41 +4,37 @@
     api-level="22"
     density="420dpi"
     format="7"
-    timestamp="14576614575438"
-    token="-2286545116701934564"
-    verifier="IMPLEMENTED_INTERFACES_CHANGE" >
+    timestamp="7527113018327"
+    token="-2286545116701934564" >
 
     <task
         name="javac"
-        duration="152" />
+        duration="212" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="56" />
     <task
         name="verifier"
-        duration="4" />
+        duration="11" />
 
-    <artifact
-        location="/Users/wei/105403/app/build/intermediates/res/resources-debug.ap_"
-        type="RESOURCES" />
     <artifact
         location="/Users/wei/105403/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
         type="DEX" />
 
-    <build timestamp="2088032551492" >
+    <build timestamp="231512649200" >
         <artifact
             location="/Users/wei/105403/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="14576614575438"
-        verifier="IMPLEMENTED_INTERFACES_CHANGE" >
+    <build timestamp="2991547007651" >
         <artifact
             location="/Users/wei/105403/app/build/intermediates/res/resources-debug.ap_"
             type="RESOURCES" />
+    </build>
+    <build timestamp="7527113018327" >
         <artifact
             location="/Users/wei/105403/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
             type="DEX" />

@@ -37,6 +37,7 @@ public class ListViewCheckboxesActivity extends Activity
     MyCustomAdapter dataAdapter = null;
     EditText txtsearch;
     ArrayList<States> stateList = new ArrayList<States>();
+    ListView listView ;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -44,28 +45,36 @@ public class ListViewCheckboxesActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+
+        listView = (ListView) findViewById(R.id.listView1);
+        // Assign adapter to ListView
+
         Bundle bundle = this.getIntent().getExtras();
         final String Url = bundle.getString("Url");
 
         txtsearch = (EditText) findViewById(R.id.txtsearch);
 
-//        txtsearch.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                ListViewCheckboxesActivity.this.dataAdapter.getFilter().filter(charSequence);
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//
-//            }
-//        });
+
+        txtsearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    search();
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
 
@@ -91,7 +100,7 @@ public class ListViewCheckboxesActivity extends Activity
                     doc.select("div").removeAttr("class");
                     doc.select("span").remove();			//去除不要的屬性
 
-                    for (int x=1;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+                    for (int x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
                         title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
                         te[x] = title[x].toString();
@@ -117,34 +126,51 @@ public class ListViewCheckboxesActivity extends Activity
 
     }
 
+    public void search()
+    {
+        //textlength = txtsearch.getText().length();
+        dataAdapter.clear();
+        for(int x=0 ; x<100; x++){
+
+            if(te[x].contains(txtsearch.getText().toString())){
+
+                Log.e(x+"",te[x]);
+                States _states = new States("a",te[x],false);
+                Log.e("333",_states.getName());
+                stateList.add(_states);
+            }
+
+        }
+        dataAdapter = new MyCustomAdapter(this,R.layout.state_info, stateList);
+        listView.setAdapter(dataAdapter);
+    }
 
     private void displayListView()
     {
 
         //Array list of countries
 
-        for (int x=1;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+        for (int x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
             States _states = new States("a",te[x],false);
             stateList.add(_states);
 
         }
-
-        //create an ArrayAdaptar from the String Array
         dataAdapter = new MyCustomAdapter(this,R.layout.state_info, stateList);
-        ListView listView = (ListView) findViewById(R.id.listView1);
-        // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
 
-        listView.setOnItemClickListener(new OnItemClickListener()
-        {
+        //create an ArrayAdaptar from the String Array
 
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                // When clicked, show a toast with the TextView text
-                States state = (States) parent.getItemAtPosition(position);
 
-            }
-        });
+//        listView.setOnItemClickListener(new OnItemClickListener()
+//        {
+//
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+//            {
+//                // When clicked, show a toast with the TextView text
+//                States state = (States) parent.getItemAtPosition(position);
+//
+//            }
+//        });
 
 
     }

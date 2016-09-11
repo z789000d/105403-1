@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtsearch"
+        android:text="教學單位"
 
         />
     <ListView android:id="@+id/listView1" android:layout_width="fill_parent"

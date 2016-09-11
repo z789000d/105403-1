@@ -16,12 +16,12 @@
         "source": "/Users/wei/105403/app/src/main/res/layout/register.xml"
     },
     {
-        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_join_next.xml",
-        "source": "/Users/wei/105403/app/src/main/res/layout/activity_join_next.xml"
-    },
-    {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_main_view.xml",
         "source": "/Users/wei/105403/app/src/main/res/layout/activity_main_view.xml"
+    },
+    {
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_join_next.xml",
+        "source": "/Users/wei/105403/app/src/main/res/layout/activity_join_next.xml"
     },
     {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/login.xml",
