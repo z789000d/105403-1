@@ -1,9 +1,6 @@
 CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$MyCustomAdapter$1$override.class
 CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$MyCustomAdapter$ViewHolder$override.class
-CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$1$override.class
 CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$MyCustomAdapter$override.class
 CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
-CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$3$override.class
 CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$4$override.class
-CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$2$override.class
 CHANGED,/Users/wei/105403/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/draggridview/ListViewCheckboxesActivity$override.class

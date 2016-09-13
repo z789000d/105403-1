@@ -1,11 +1,13 @@
 package com.example.draggridview;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -31,13 +33,17 @@ import org.jsoup.nodes.Element;
 
 public class ListViewCheckboxesActivity extends Activity
 {
-    URL url;
     String te[] = new String[100];
     Button b01;
     MyCustomAdapter dataAdapter = null;
     EditText txtsearch;
     ArrayList<States> stateList = new ArrayList<States>();
     ListView listView ;
+    URL  url;
+    int x; //迴圈
+    States _states = new States("x",te[x],false);
+    String [] status = new String[100];
+    String [] number = new String[100];
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -50,7 +56,14 @@ public class ListViewCheckboxesActivity extends Activity
         // Assign adapter to ListView
 
         Bundle bundle = this.getIntent().getExtras();
-        final String Url = bundle.getString("Url");
+         final String Url = bundle.getString("Url");
+            try {
+             url = new URL(Url);
+                }
+            catch (MalformedURLException e)
+                {
+                    e.printStackTrace();
+                }
 
         txtsearch = (EditText) findViewById(R.id.txtsearch);
 
@@ -94,13 +107,12 @@ public class ListViewCheckboxesActivity extends Activity
                 Element title[] = new Element[100];
                 try {
 
-                    url=new URL("http://www.ntub.edu.tw/bin/home.php");
                     Document doc =  Jsoup.parse(url, 3000);        //連結該網址
                     doc.select("img").removeAttr("src");
                     doc.select("div").removeAttr("class");
                     doc.select("span").remove();			//去除不要的屬性
 
-                    for (int x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+                    for ( x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
                         title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
                         te[x] = title[x].toString();
@@ -128,16 +140,47 @@ public class ListViewCheckboxesActivity extends Activity
 
     public void search()
     {
-        //textlength = txtsearch.getText().length();
+        for(int i=0 ; i<stateList.size(); i++)
+            {
+                if(stateList.get(i).isSelected()==true)
+
+                {
+                    for(x=0; x<100; x++)
+                        {
+                            if(stateList.get(i).getName().equals(te[x]))
+
+                                {
+                                    status[x]="a"+te[x]+"true";
+                                    Log.e("333",String.valueOf(x));
+
+                                }
+                        }
+
+
+                }
+
+            }//搜尋判斷選擇是true跟改陣列內容
+
+
+
         dataAdapter.clear();
-        for(int x=0 ; x<100; x++){
+        for( x=0 ; x<100; x++){
+
+
 
             if(te[x].contains(txtsearch.getText().toString())){
 
-                Log.e(x+"",te[x]);
-                States _states = new States("a",te[x],false);
-                Log.e("333",_states.getName());
-                stateList.add(_states);
+                if(status[x].equals("a"+te[x]+"true"))
+                    {
+                        _states = new States("a", te[x], true);
+                        stateList.add(_states);
+                    }
+                else {
+                    // Log.e(x+"",te[x]);
+                    _states = new States("a", te[x], false);
+                    //Log.e("333",_states.getName());
+                    stateList.add(_states);
+                }//搜尋判斷選擇是true還是false再分別加入
             }
 
         }
@@ -150,8 +193,10 @@ public class ListViewCheckboxesActivity extends Activity
 
         //Array list of countries
 
-        for (int x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
-            States _states = new States("a",te[x],false);
+        for ( x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+            status[x] ="a"+te[x]+"false";
+            _states = new States("a",te[x],false);
+
             stateList.add(_states);
 
         }
