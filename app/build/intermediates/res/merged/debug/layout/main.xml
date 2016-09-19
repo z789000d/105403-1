@@ -6,17 +6,7 @@
     android:gravity="center"
     android:background="#ffeeeeee">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/b01"
-        android:text="顯示清單"
-        />
 
-    <Button android:id="@+id/findSelected"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="確定" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

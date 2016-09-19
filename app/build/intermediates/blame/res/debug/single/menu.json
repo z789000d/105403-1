@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/menu/activity_main.xml",
-        "source": "/Users/wei/105403/app/src/main/res/menu/activity_main.xml"
-    },
-    {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
         "source": "/Users/wei/105403/app/src/main/res/menu/menu_main.xml"
     }

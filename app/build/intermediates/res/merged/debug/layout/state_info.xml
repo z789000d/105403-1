@@ -8,15 +8,17 @@
     <CheckBox android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:focusable="false"
         android:textColor="#ff00bb88"
         android:focusableInTouchMode="false"
-        android:text="checkbox" />
+        android:text="checkbox"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 
     <TextView android:id="@+id/code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_alignBaseline="@id/checkBox1"
         android:layout_alignBottom="@id/checkBox1"
         android:layout_toRightOf="@id/checkBox1"

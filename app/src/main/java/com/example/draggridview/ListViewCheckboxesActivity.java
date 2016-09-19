@@ -4,16 +4,23 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -30,11 +37,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 
 public class ListViewCheckboxesActivity extends Activity
 {
     String te[] = new String[100];
-    Button b01;
     MyCustomAdapter dataAdapter = null;
     EditText txtsearch;
     ArrayList<States> stateList = new ArrayList<States>();
@@ -44,13 +53,21 @@ public class ListViewCheckboxesActivity extends Activity
     States _states = new States("x",te[x],false);
     String [] status = new String[100];
     String [] number = new String[100];
+    ActionBar actionBar;
+    Handler handler=new Handler();
+    SQLiteDatabase db;
 
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
+
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        DbCall();
+        actionBar = getActionBar();
 
         listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
@@ -93,15 +110,69 @@ public class ListViewCheckboxesActivity extends Activity
 
 
 
-        b01 = (Button) findViewById(R.id.b01);
 
-        b01.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayListView();
+
+
+        //Generate list View from ArrayList
+
+
+//        checkButtonClick();
+        Thread threadc =new Thread() {
+
+            Thread threadB = new Thread(new Runnable() {
+                public void run() {
+                    try {
+
+                        Html();
+
+                        Log.e("thb", "end");
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+
+            public void run() {
+                threadB.start();
+                try {
+
+                    threadB.join();
+                    Log.e("tha", "start");
+                    Thread.sleep(2000);
+                    Thread a = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            displayListView();
+
+                            handler.post(runnableUi);
+                        }
+                    });
+                    a.start();
+
+
+
+                    //handler.post(runnableUi);
+
+                    Log.e("tha", "end");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
-        });
+        };
+        threadc.start();
+
+
+    }
+
+
+
+    public  void Html()
+
+    {
+
         new Thread(new Runnable() {
             public void run(){
                 Element title[] = new Element[100];
@@ -128,13 +199,6 @@ public class ListViewCheckboxesActivity extends Activity
 
             }
         }).start();
-
-
-
-        //Generate list View from ArrayList
-
-
-        checkButtonClick();
 
     }
 
@@ -188,7 +252,7 @@ public class ListViewCheckboxesActivity extends Activity
         listView.setAdapter(dataAdapter);
     }
 
-    private void displayListView()
+    public void displayListView()
     {
 
         //Array list of countries
@@ -201,7 +265,10 @@ public class ListViewCheckboxesActivity extends Activity
 
         }
         dataAdapter = new MyCustomAdapter(this,R.layout.state_info, stateList);
-        listView.setAdapter(dataAdapter);
+
+
+
+
 
         //create an ArrayAdaptar from the String Array
 
@@ -219,8 +286,17 @@ public class ListViewCheckboxesActivity extends Activity
 
 
     }
+    Runnable runnableUi = new Runnable(){
+        @Override
+        public void run() {
+            //更新界面
+            listView.setAdapter(dataAdapter);
 
-    private class MyCustomAdapter extends ArrayAdapter<States>
+        }
+
+    };
+
+    public class MyCustomAdapter extends ArrayAdapter<States>
     {
 
         private ArrayList<States> stateList;
@@ -294,47 +370,82 @@ public class ListViewCheckboxesActivity extends Activity
 
     }
 
-    private void checkButtonClick()
-    {
+//    private void checkButtonClick()
+//    {
+//
+//        Button myButton = (Button) findViewById(R.id.findSelected);
+//
+//        myButton.setOnClickListener(new OnClickListener()
+//        {
+//
+//            @Override
+//            public void onClick(View v)
+//            {
+//
+//
+//            }
+//
+//
+//        });
+//    }
 
-        Button myButton = (Button) findViewById(R.id.findSelected);
 
-        myButton.setOnClickListener(new OnClickListener()
-        {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-            @Override
-            public void onClick(View v)
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action) {
+
+            StringBuffer responseText = new StringBuffer();
+            // responseText.append("The following were selected...\n");
+
+            ArrayList<States> stateList = dataAdapter.stateList;
+
+
+            for(int i=0;i<stateList.size();i++)
             {
+                States state = stateList.get(i);
 
-                StringBuffer responseText = new StringBuffer();
-               // responseText.append("The following were selected...\n");
-
-                ArrayList<States> stateList = dataAdapter.stateList;
-
-
-                for(int i=0;i<stateList.size();i++)
+                if(state.isSelected())
                 {
-                    States state = stateList.get(i);
-
-                    if(state.isSelected())
-                    {
-                        responseText.append("\n"+"----" + state.getName());
-                    }
+                    responseText.append("\n"+"----" + state.getName());
                 }
-                String ArrayText =  responseText.toString();
+            }
+            String ArrayText =  responseText.toString();
 
 
 //                Toast.makeText(getApplicationContext(),
 //                        responseText, Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent();
-                intent.putExtra("Array",ArrayText);
-                intent.setClass(ListViewCheckboxesActivity.this,ShowInWebView.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent();
+            intent.putExtra("Array",ArrayText);
+            intent.setClass(ListViewCheckboxesActivity.this,ShowInWebView.class);
+            startActivity(intent);
+            return true;
+        }
 
-
-        });
+        return super.onOptionsItemSelected(item);
     }
+    public  void DbCall()
 
+    {
+        MyDataDB helper = new MyDataDB(ListViewCheckboxesActivity.this, db_name,null,1);
+        db = helper.getReadableDatabase();
+
+    }
+    public String db_name = "MemorandumSQL";
+
+    //表名
+    public String table_name = "newMemorandum";
 }
