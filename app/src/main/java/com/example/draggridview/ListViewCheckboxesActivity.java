@@ -55,7 +55,7 @@ public class ListViewCheckboxesActivity extends Activity
     String [] number = new String[100];
     ActionBar actionBar;
     Handler handler=new Handler();
-    SQLiteDatabase db;
+
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -66,7 +66,6 @@ public class ListViewCheckboxesActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        DbCall();
         actionBar = getActionBar();
 
         listView = (ListView) findViewById(R.id.listView1);
@@ -437,15 +436,5 @@ public class ListViewCheckboxesActivity extends Activity
 
         return super.onOptionsItemSelected(item);
     }
-    public  void DbCall()
 
-    {
-        MyDataDB helper = new MyDataDB(ListViewCheckboxesActivity.this, db_name,null,1);
-        db = helper.getReadableDatabase();
-
-    }
-    public String db_name = "MemorandumSQL";
-
-    //表名
-    public String table_name = "newMemorandum";
 }

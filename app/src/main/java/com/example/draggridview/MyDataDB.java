@@ -1,52 +1,87 @@
 package com.example.draggridview;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by wei on 2016/9/19.
  */
 public class MyDataDB extends SQLiteOpenHelper {
 
-    // 資料庫名稱
-    public static final String DATABASE_NAME = "mydata.db";
-    // 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
-    public static final int VERSION = 1;
-    // 資料庫物件，固定的欄位變數
-    private static SQLiteDatabase database;
+    private final static String DATABASE_NAME="sec_db";
+    private final static int DATABASE_VERSION=1;
+    private final static String TABLE_NAME="sec_pwd";
+    public final static String FIELD_ID="_id";
+    public final static String FIELD_DATA="sec_Data";
+    ContentValues cv=new ContentValues();
+    String[] webxml;
 
-    // 建構子，在一般的應用都不需要修改
-    public MyDataDB(Context context, String name, CursorFactory factory,
-                      int version) {
-        super(context, name, factory, version);
+    public MyDataDB(Context context) {
+        super(context, DATABASE_NAME,null, DATABASE_VERSION);
     }
 
     // 需要資料庫的元件呼叫這個方法，這個方法在一般的應用都不需要修改
-    public static SQLiteDatabase getDatabase(Context context) {
-        if (database == null || !database.isOpen()) {
-            database = new MyDataDB(context, DATABASE_NAME,
-                    null, VERSION).getWritableDatabase();
-        }
-
-        return database;
-    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         // 建立應用程式需要的表格
         // 待會再回來完成它
+
+        String sql="Create table "+TABLE_NAME+"("+FIELD_ID+" integer primary key autoincrement,"
+                +FIELD_DATA+" text );";
+        db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // 刪除原有的表格
-        // 待會再回來完成它
-
-        // 呼叫onCreate建立新版的表格
+        // TODO Auto-generated method stub
+        String sql=" DROP TABLE IF EXISTS "+TABLE_NAME;
+        db.execSQL(sql);
         onCreate(db);
+
+    }
+
+    public long insert(String Title)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        cv.put(FIELD_DATA, Title);
+        long row=db.insert(TABLE_NAME, null, cv);
+        //Log.d("ADD", row+"");
+        return row;
+
+    }
+
+    public Cursor select()
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor cursor=db.query(TABLE_NAME, null, null, null, null, null,"_id");
+
+        cursor.moveToFirst();
+        String str;
+        do {
+            str = "id" + cursor.getString(0) + "\n";
+            str+= "data" + cursor.getString(1) + "\n";
+            Log.d("1211",str);
+
+        }while (cursor.moveToNext());
+
+        return cursor;
+    }
+
+    public void delete(int id)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String where=FIELD_ID+"=?";
+        String[] whereValue={Integer.toString(id)};
+        db.delete(TABLE_NAME, where, whereValue);
     }
 
 

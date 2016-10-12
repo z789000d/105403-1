@@ -7,8 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,9 +35,9 @@ public class ShowInWebView extends Activity {
 	RecordAdapter mSimpleAdapter;
 	String te[] = new String[100];
 	Handler handler=new Handler();
-
-
-
+	String ArrayTextSplit[] ;
+	private SQLiteDatabase db;
+	String Array;
 
 
 
@@ -43,9 +48,12 @@ public class ShowInWebView extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_showinwebview);
+
 		Bundle bundle = this.getIntent().getExtras();
-		final String Array = bundle.getString("Array");
-		final String[] ArrayTextSplit = Array.split("----");
+		Array = bundle.getString("Array");
+		ArrayTextSplit = Array.split("----");
+		MyDataDB dbHelper = new MyDataDB(this);
+		db = dbHelper.getWritableDatabase();
 
 		mSimpleAdapter = new RecordAdapter(this,dataSourceList);
 //		LayoutInflater inflater = getLayoutInflater();
@@ -150,5 +158,52 @@ public class ShowInWebView extends Activity {
 		}
 
 	};
+
+	public void add()
+
+	{
+
+
+		MyDataDB db = new MyDataDB(this);
+		for (int x=1; x<ArrayTextSplit.length ;x++) {
+
+				db.insert(ArrayTextSplit[x]);
+
+
+		}
+
+		//db.select();
+//		for (int x=1; x<100; x++ ) {
+//			db.delete(x);
+//		}
+		Intent intent = new Intent();
+		intent.putExtra("Array",Array);
+		intent.setClass(ShowInWebView.this,ShowInWebViewNext.class);
+		startActivity(intent);
+
+
+
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		int id = item.getItemId();
+
+		if (id == R.id.action) {
+
+
+			add();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
 
 }
