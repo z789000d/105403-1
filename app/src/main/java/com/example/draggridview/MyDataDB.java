@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.jar.Attributes;
+
 /**
  * Created by wei on 2016/9/19.
  */
@@ -19,6 +21,7 @@ public class MyDataDB extends SQLiteOpenHelper {
     private final static String TABLE_NAME="sec_pwd";
     public final static String FIELD_ID="_id";
     public final static String FIELD_DATA="sec_Data";
+    public final static String FIELD_NAME="sec_Name";
     ContentValues cv=new ContentValues();
     String[] webxml;
 
@@ -33,8 +36,11 @@ public class MyDataDB extends SQLiteOpenHelper {
         // 建立應用程式需要的表格
         // 待會再回來完成它
 
-        String sql="Create table "+TABLE_NAME+"("+FIELD_ID+" integer primary key autoincrement,"
-                +FIELD_DATA+" text );";
+        String sql="Create table "+TABLE_NAME+
+                "(" +FIELD_ID+" integer primary key autoincrement,"
+                +FIELD_DATA+" TEXT, "
+                +FIELD_NAME+" TEXT);";
+
         db.execSQL(sql);
     }
 
@@ -47,14 +53,15 @@ public class MyDataDB extends SQLiteOpenHelper {
 
     }
 
-    public long insert(String Title)
+    public void insert(String Title,String Name)
     {
         SQLiteDatabase db=this.getWritableDatabase();
 
         cv.put(FIELD_DATA, Title);
-        long row=db.insert(TABLE_NAME, null, cv);
+        cv.put(FIELD_NAME,Name);
+        db.insert(TABLE_NAME, null, cv);
         //Log.d("ADD", row+"");
-        return row;
+
 
     }
 
@@ -69,6 +76,8 @@ public class MyDataDB extends SQLiteOpenHelper {
         do {
             str = "id" + cursor.getString(0) + "\n";
             str+= "data" + cursor.getString(1) + "\n";
+            str+= "name" + cursor.getString(2) + "\n";
+
             Log.d("1211",str);
 
         }while (cursor.moveToNext());
@@ -84,5 +93,12 @@ public class MyDataDB extends SQLiteOpenHelper {
         db.delete(TABLE_NAME, where, whereValue);
     }
 
+    public Cursor getAll()
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        return db.query(TABLE_NAME,new String[]{FIELD_ID,FIELD_DATA,FIELD_NAME},null,null,null,
+                null,null,null);
+
+    }
 
 }

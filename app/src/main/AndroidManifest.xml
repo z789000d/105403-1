@@ -37,7 +37,8 @@
         <activity android:name=".ListViewCheckboxesActivity" />
         <activity android:name=".MainView" />
         <activity android:name=".NewUrl" />
-        <activity android:name=".ShowInWebViewNext"></activity>
+        <activity android:name=".ShowInWebViewNext" />
+        <activity android:name=".WebList"></activity>
     </application>
 
 </manifest>

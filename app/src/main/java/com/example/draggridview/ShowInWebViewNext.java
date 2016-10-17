@@ -1,11 +1,19 @@
 package com.example.draggridview;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import java.net.URL;
 import java.util.*;
@@ -23,13 +31,13 @@ public class ShowInWebViewNext extends Activity {
     String ArrayTextSplit[] ;
     Handler handler=new Handler();
     MyDataDB dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_in_web_view_next);
         Bundle bundle = this.getIntent().getExtras();
-        final String Array = bundle.getString("Array");
-        ArrayTextSplit = Array.split("----");
+        final String Array = bundle.getString("edit");
 
         dbHelper = new MyDataDB(this);
 
@@ -44,11 +52,16 @@ public class ShowInWebViewNext extends Activity {
         Cursor cursor = dbHelper.select();	//取得SQLite類別的回傳值:Cursor物件
         cursor.moveToFirst();
         do {
+            if(cursor.getString(2).equals(Array))
 
-            HashMap<String, Object> itemHashMap = new HashMap<String, Object>();
-            itemHashMap.put("words", cursor.getString(1));
-            dataSourceList.add(itemHashMap);
-            handler.post(runnableUi);
+            {
+                HashMap<String, Object> itemHashMap = new HashMap<String, Object>();
+                itemHashMap.put("words", cursor.getString(1));
+                dataSourceList.add(itemHashMap);
+                handler.post(runnableUi);
+            }
+
+
 
         }while (cursor.moveToNext());
         // for (int x=1; x<ArrayTextSplit.length ;x++) {
@@ -97,4 +110,25 @@ public class ShowInWebViewNext extends Activity {
         }
 
     };
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.action) {
+
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

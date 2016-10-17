@@ -7,11 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +41,7 @@ public class ShowInWebView extends Activity {
 	String ArrayTextSplit[] ;
 	private SQLiteDatabase db;
 	String Array;
+	String edit1;
 
 
 
@@ -164,22 +168,11 @@ public class ShowInWebView extends Activity {
 	{
 
 
-		MyDataDB db = new MyDataDB(this);
-		for (int x=1; x<ArrayTextSplit.length ;x++) {
-
-				db.insert(ArrayTextSplit[x]);
-
-
-		}
 
 		//db.select();
 //		for (int x=1; x<100; x++ ) {
 //			db.delete(x);
 //		}
-		Intent intent = new Intent();
-		intent.putExtra("Array",Array);
-		intent.setClass(ShowInWebView.this,ShowInWebViewNext.class);
-		startActivity(intent);
 
 
 
@@ -197,9 +190,55 @@ public class ShowInWebView extends Activity {
 		int id = item.getItemId();
 
 		if (id == R.id.action) {
+			LayoutInflater inflater = LayoutInflater.from(ShowInWebView.this);
+			final View v = inflater.inflate(R.layout.alertdialog_use, null);
+			final AlertDialog.Builder dialog = new AlertDialog.Builder(ShowInWebView.this);
+
+			dialog.setTitle("輸入名稱");
+			dialog.setView(v);
+			dialog.setMessage("輸入網頁名稱");
+			dialog.setPositiveButton("確定",new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					// TODO Auto-generated method stub
+					MyDataDB db = new MyDataDB(ShowInWebView.this);
+					EditText editText = (EditText) (v.findViewById(R.id.editText1));
+
+					edit1 =  editText.getText().toString();
+					for (int x=1; x<ArrayTextSplit.length ;x++) {
+
+						db.insert(ArrayTextSplit[x],edit1);
 
 
-			add();
+					}
+
+
+
+					Intent intent = new Intent();
+					intent.putExtra("edit",edit1);
+					intent.setClass(ShowInWebView.this,WebList.class);
+					startActivity(intent);
+				}
+
+			});
+			dialog.setNeutralButton("取消",new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					// TODO Auto-generated method stub
+
+				}
+
+			});
+			dialog.show();
+
+
+
+
+
+
+
+
+
 			return true;
 		}
 

@@ -4,6 +4,10 @@
         "source": "/Users/wei/105403/app/src/main/res/layout/activity_new_url.xml"
     },
     {
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_web_list.xml",
+        "source": "/Users/wei/105403/app/src/main/res/layout/activity_web_list.xml"
+    },
+    {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/main.xml",
         "source": "/Users/wei/105403/app/src/main/res/layout/main.xml"
     },
@@ -22,6 +26,10 @@
     {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_join_next.xml",
         "source": "/Users/wei/105403/app/src/main/res/layout/activity_join_next.xml"
+    },
+    {
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/alertdialog_use.xml",
+        "source": "/Users/wei/105403/app/src/main/res/layout/alertdialog_use.xml"
     },
     {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/layout/activity_show_in_web_view_next.xml",

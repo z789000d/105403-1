@@ -38,6 +38,7 @@
         <activity android:name="com.example.draggridview.MainView" />
         <activity android:name="com.example.draggridview.NewUrl" />
         <activity android:name="com.example.draggridview.ShowInWebViewNext" />
+        <activity android:name="com.example.draggridview.WebList" />
     </application>
 
 </manifest>
