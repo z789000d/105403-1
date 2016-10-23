@@ -25,5 +25,16 @@ public class MainView extends Activity {
                 startActivity(intent);
             }
         });
+
+        b02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.setClass(MainView.this,WebList.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }

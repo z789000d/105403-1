@@ -205,9 +205,9 @@ public class ShowInWebView extends Activity {
 					EditText editText = (EditText) (v.findViewById(R.id.editText1));
 
 					edit1 =  editText.getText().toString();
-					for (int x=1; x<ArrayTextSplit.length ;x++) {
+					for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
 
-						db.insert(ArrayTextSplit[x],edit1);
+						db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}",""),edit1);
 
 
 					}

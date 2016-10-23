@@ -47,7 +47,9 @@ public class ShowInWebViewNext extends Activity {
 //		TextView otherTv1 = (TextView)otherLayout.findViewById(R.id.words_home_function_1);
 
 
+
         mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
+
 
         Cursor cursor = dbHelper.select();	//取得SQLite類別的回傳值:Cursor物件
         cursor.moveToFirst();

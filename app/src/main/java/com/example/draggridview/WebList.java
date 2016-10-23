@@ -39,22 +39,36 @@ public class WebList extends Activity {
 
         Cursor cursor = dbHelper.select();	//取得SQLite類別的回傳值:Cursor物件
         cursor.moveToFirst();
-        String test = cursor.getString(2);
-        cursor.moveToNext();
         int x = 0 ;
-        do {
-            if (cursor.getString(2).equals(null)) {
+        if(MyArrayAdapter.isEmpty()) // 如果適配器是空的直接新增進去
 
-                cursor.moveToFirst();
+            {
+
                 MyArrayAdapter.add(cursor.getString(2));
                 MyArrayAdapter.notifyDataSetChanged();
                 strGroup[x]= cursor.getString(2);
-                x= x +1;
+                x = x +1;
+
 
             }
-            else
-            {
-                if (test.equals(cursor.getString(2))) {
+        String test = cursor.getString(2);
+        cursor.moveToNext();
+
+
+        do {
+//            if (cursor.getString(2).equals(null) || cursor.getString(2).equals("") ){
+//
+//                cursor.moveToFirst();
+//                MyArrayAdapter.add(cursor.getString(2));
+//                MyArrayAdapter.notifyDataSetChanged();
+//                strGroup[x]= cursor.getString(2);
+//                x= x +1;
+//
+//            }
+//            else
+//            {
+                if (test.equals(cursor.getString(2))) { //做盼對在新增進去適配器 去除重複
+
 
                 } else {
                     test = cursor.getString(2);
@@ -62,7 +76,7 @@ public class WebList extends Activity {
                     MyArrayAdapter.notifyDataSetChanged();
                     strGroup[x]= cursor.getString(2);
                     x = x +1;
-                }
+//                }
 
             }
 
