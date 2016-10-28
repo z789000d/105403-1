@@ -42,6 +42,7 @@ public class ShowInWebView extends Activity {
 	private SQLiteDatabase db;
 	String Array;
 	String edit1;
+	String Url;
 
 
 
@@ -55,6 +56,7 @@ public class ShowInWebView extends Activity {
 
 		Bundle bundle = this.getIntent().getExtras();
 		Array = bundle.getString("Array");
+		Url = bundle.getString("Url");
 		ArrayTextSplit = Array.split("----");
 		MyDataDB dbHelper = new MyDataDB(this);
 		db = dbHelper.getWritableDatabase();
@@ -207,7 +209,7 @@ public class ShowInWebView extends Activity {
 					edit1 =  editText.getText().toString();
 					for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
 
-						db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}",""),edit1);
+						db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}","").replace("..",Url),edit1);
 
 
 					}

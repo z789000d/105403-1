@@ -85,12 +85,12 @@ public class MyDataDB extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void delete(int id)
+    public void del(String name)
     {
         SQLiteDatabase db=this.getWritableDatabase();
-        String where=FIELD_ID+"=?";
-        String[] whereValue={Integer.toString(id)};
-        db.delete(TABLE_NAME, where, whereValue);
+        Log.d("3333",name);
+        db.delete(TABLE_NAME, FIELD_NAME+"="+name,null);
+
     }
 
     public Cursor getAll()
@@ -100,5 +100,6 @@ public class MyDataDB extends SQLiteOpenHelper {
                 null,null,null);
 
     }
+
 
 }

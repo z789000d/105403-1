@@ -1,10 +1,12 @@
 package com.example.draggridview;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,8 +29,9 @@ public class WebList extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_list);
         activity = this;
-
         dbHelper = new MyDataDB(this);
+        db = dbHelper.getWritableDatabase();
+
 
 
         listview = (ListView)findViewById(R.id.list);
@@ -97,6 +100,21 @@ public class WebList extends Activity {
                 intent.putExtra("edit",text);
                 intent.setClass(WebList.this,ShowInWebViewNext.class);
                 startActivity(intent);
+            }
+        });
+        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                String text = strGroup[i];
+                Log.d("123",text);
+                dbHelper.del(text);
+                MyArrayAdapter.remove(text);
+                MyArrayAdapter.notifyDataSetChanged();
+
+
+
+                return false;
             }
         });
 

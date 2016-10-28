@@ -55,6 +55,7 @@ public class ListViewCheckboxesActivity extends Activity
     String [] number = new String[100];
     ActionBar actionBar;
     Handler handler=new Handler();
+    String Url;
 
 
 
@@ -72,7 +73,7 @@ public class ListViewCheckboxesActivity extends Activity
         // Assign adapter to ListView
 
         Bundle bundle = this.getIntent().getExtras();
-         final String Url = bundle.getString("Url");
+           Url = bundle.getString("Url");
             try {
              url = new URL(Url);
                 }
@@ -429,6 +430,7 @@ public class ListViewCheckboxesActivity extends Activity
 
             Intent intent = new Intent();
             intent.putExtra("Array",ArrayText);
+            intent.putExtra("Url",Url);
             intent.setClass(ListViewCheckboxesActivity.this,ShowInWebView.class);
             startActivity(intent);
             return true;

@@ -2,29 +2,29 @@
 <instant-run
     abi="x86_64,x86"
     api-level="22"
-    density="420dpi"
+    density="xhdpi"
     format="7"
-    timestamp="1522807712850"
+    timestamp="4158538919891"
     token="-2286545116701934564" >
 
     <task
         name="javac"
-        duration="578" />
+        duration="242" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="296" />
+        duration="198" />
     <task
         name="verifier"
-        duration="40" />
+        duration="29" />
 
     <artifact
         location="/Users/wei/105403/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="1522807712850" >
+    <build timestamp="4158538919891" >
         <artifact
             location="/Users/wei/105403/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />

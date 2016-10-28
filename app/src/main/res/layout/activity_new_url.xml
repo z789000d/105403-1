@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextUrl"
         android:id="@+id/EditUrl"
-        android:text="http://www.ntub.edu.tw/bin/home.php"
+        android:text="http://www.landbank.com.tw/"
         />
     <Button
         android:layout_width="match_parent"
