@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:2:1-44:12
+ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:2:1-47:12
 	package
 		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/wei/105403/app/src/main/AndroidManifest.xml
@@ -46,7 +46,7 @@ ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:16:5-88
 	android:name
 		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:16:30-85
 application
-ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:18:5-42:19
+ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:18:5-45:19
 	android:label
 		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:21:9-41
 	android:allowBackup
@@ -107,7 +107,19 @@ activity#com.example.draggridview.ShowInWebViewNext
 ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:40:9-55
 	android:name
 		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:40:19-52
-activity#com.example.draggridview.WebList
-ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:41:9-54
+activity#com.example.draggridview.NewUrlNext
+ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:41:9-47
 	android:name
-		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:41:19-42
+		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:41:19-45
+activity#com.example.draggridview.ListViewCheckboxesActivityNext
+ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:42:9-67
+	android:name
+		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:42:19-65
+activity#com.example.draggridview.ShowInWebViewNext1
+ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:43:9-55
+	android:name
+		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:43:19-53
+activity#com.example.draggridview.WebList
+ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:44:9-44
+	android:name
+		ADDED from /Users/wei/105403/app/src/main/AndroidManifest.xml:44:19-42

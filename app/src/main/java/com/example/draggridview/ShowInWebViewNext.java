@@ -31,13 +31,15 @@ public class ShowInWebViewNext extends Activity {
     String ArrayTextSplit[] ;
     Handler handler=new Handler();
     MyDataDB dbHelper;
+    String Array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_in_web_view_next);
         Bundle bundle = this.getIntent().getExtras();
-        final String Array = bundle.getString("edit");
+        Array = bundle.getString("edit");
+        Log.d("Array",Array);
 
         dbHelper = new MyDataDB(this);
 
@@ -126,7 +128,10 @@ public class ShowInWebViewNext extends Activity {
 
         if (id == R.id.action) {
 
-
+            Intent intent = new Intent();
+            intent.putExtra("edit",Array);
+            intent.setClass(ShowInWebViewNext.this,NewUrlNext.class);
+            startActivity(intent);
 
         }
 

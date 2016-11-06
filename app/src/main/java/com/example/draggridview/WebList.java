@@ -1,7 +1,8 @@
 package com.example.draggridview;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,8 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-
 public class WebList extends Activity {
 
     ListView listview;
@@ -23,6 +22,7 @@ public class WebList extends Activity {
     MyDataDB dbHelper;
     public Activity activity;
     String strGroup[] = new String[50];
+    String test[]  =new String [100];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +79,7 @@ public class WebList extends Activity {
                     MyArrayAdapter.notifyDataSetChanged();
                     strGroup[x]= cursor.getString(2);
                     x = x +1;
-//                }
+
 
             }
 
@@ -106,6 +106,30 @@ public class WebList extends Activity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+
+                dialog(i);
+
+
+                return true;
+            }
+        });
+
+
+    }
+    private void dialog(final int i ){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(WebList.this); //創建訊息方塊
+
+        builder.setMessage("確定要刪除？");
+
+        builder.setTitle("刪除");
+
+        builder.setPositiveButton("確認", new DialogInterface.OnClickListener()  {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
                 String text = strGroup[i];
                 Log.d("123",text);
                 dbHelper.del(text);
@@ -114,10 +138,25 @@ public class WebList extends Activity {
 
 
 
-                return false;
             }
+
         });
 
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()  {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+            }
+
+        });
+
+        builder.create().show();
 
     }
+
+
 }

@@ -4,30 +4,32 @@
     api-level="22"
     density="xhdpi"
     format="7"
-    timestamp="4158538919891"
+    timestamp="18526843913745"
     token="-2286545116701934564" >
 
     <task
         name="javac"
-        duration="242" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="198" />
+        duration="0" />
     <task
         name="verifier"
-        duration="29" />
+        duration="0" />
 
-    <artifact
-        location="/Users/wei/105403/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
-
-    <build timestamp="4158538919891" >
+    <build timestamp="18371512811349" >
         <artifact
             location="/Users/wei/105403/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
+    <build timestamp="18492238505071" >
+        <artifact
+            location="/Users/wei/105403/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+    </build>
+    <build timestamp="18526843913745" />
 
 </instant-run>
