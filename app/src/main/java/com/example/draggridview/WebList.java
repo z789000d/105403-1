@@ -14,6 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 public class WebList extends Activity {
 
     ListView listview;
@@ -22,10 +28,11 @@ public class WebList extends Activity {
     MyDataDB dbHelper;
     public Activity activity;
     String strGroup[] = new String[50];
-    String test[]  =new String [100];
+    String remove[] = new String[100];
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_list);
         activity = this;
@@ -33,58 +40,62 @@ public class WebList extends Activity {
         db = dbHelper.getWritableDatabase();
 
 
-
-        listview = (ListView)findViewById(R.id.list);
+        listview = (ListView) findViewById(R.id.list);
 
         MyArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         listview.setAdapter(MyArrayAdapter);
 
 
-        Cursor cursor = dbHelper.select();	//取得SQLite類別的回傳值:Cursor物件
+        Cursor cursor = dbHelper.select();    //取得SQLite類別的回傳值:Cursor物件
         cursor.moveToFirst();
-        int x = 0 ;
-        if(MyArrayAdapter.isEmpty()) // 如果適配器是空的直接新增進去
 
-            {
+        if (MyArrayAdapter.isEmpty()) // 如果適配器是空的直接新增進去
 
-                MyArrayAdapter.add(cursor.getString(2));
-                MyArrayAdapter.notifyDataSetChanged();
-                strGroup[x]= cursor.getString(2);
-                x = x +1;
+        {
+
+            MyArrayAdapter.add(cursor.getString(2));
+            MyArrayAdapter.notifyDataSetChanged();
 
 
-            }
+
+        }
         String test = cursor.getString(2);
         cursor.moveToNext();
 
-
         do {
-//            if (cursor.getString(2).equals(null) || cursor.getString(2).equals("") ){
-//
-//                cursor.moveToFirst();
-//                MyArrayAdapter.add(cursor.getString(2));
-//                MyArrayAdapter.notifyDataSetChanged();
-//                strGroup[x]= cursor.getString(2);
-//                x= x +1;
-//
-//            }
-//            else
-//            {
-                if (test.equals(cursor.getString(2))) { //做盼對在新增進去適配器 去除重複
+            if (test.equals(cursor.getString(2))) { //做盼對在新增進去適配器 去除重複
 
 
-                } else {
-                    test = cursor.getString(2);
-                    MyArrayAdapter.add(cursor.getString(2));
-                    MyArrayAdapter.notifyDataSetChanged();
-                    strGroup[x]= cursor.getString(2);
-                    x = x +1;
+            } else {
+                test = cursor.getString(2);
+                MyArrayAdapter.add(cursor.getString(2));
+                MyArrayAdapter.notifyDataSetChanged();
 
 
             }
 
-        }while (cursor.moveToNext());
+        } while (cursor.moveToNext());
 
+        for (int i = 0; i <= listview.getAdapter().getCount(); i++)  //外循环是循环的次数
+        {
+            for (int j = listview.getAdapter().getCount() - 1 ; j > i; j--)  //内循环是 外循环一次比较的次数
+            {
+                if (listview.getAdapter().getItem(i).toString().equals( listview.getAdapter().getItem(j).toString())) {
+
+                    MyArrayAdapter.remove(listview.getAdapter().getItem(j).toString());
+
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+        for(int i = 0 ; i<=listview.getAdapter().getCount()-1;i++)
+        {
+            strGroup[i]=listview.getAdapter().getItem(i).toString();
+        }
 
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,8 +108,8 @@ public class WebList extends Activity {
                 Toast.makeText(activity, result, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();
-                intent.putExtra("edit",text);
-                intent.setClass(WebList.this,ShowInWebViewNext.class);
+                intent.putExtra("edit", text);
+                intent.setClass(WebList.this, ShowInWebViewNext.class);
                 startActivity(intent);
             }
         });
@@ -116,7 +127,8 @@ public class WebList extends Activity {
 
 
     }
-    private void dialog(final int i ){
+
+    private void dialog(final int i) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(WebList.this); //創建訊息方塊
 
@@ -124,25 +136,28 @@ public class WebList extends Activity {
 
         builder.setTitle("刪除");
 
-        builder.setPositiveButton("確認", new DialogInterface.OnClickListener()  {
+        builder.setPositiveButton("確認", new DialogInterface.OnClickListener() {
 
             @Override
 
             public void onClick(DialogInterface dialog, int which) {
 
                 String text = strGroup[i];
-                Log.d("123",text);
+                Log.d("123", text);
                 dbHelper.del(text);
                 MyArrayAdapter.remove(text);
                 MyArrayAdapter.notifyDataSetChanged();
-
+                for(int x = 0 ; x<=listview.getAdapter().getCount()-1;x++)
+                {
+                    strGroup[x]=listview.getAdapter().getItem(x).toString();
+                }
 
 
             }
 
         });
 
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()  {
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
             @Override
 
