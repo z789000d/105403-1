@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class WebList extends Activity {
     public Activity activity;
     String strGroup[] = new String[50];
     String remove[] = new String[100];
+    Button bt01;
 
 
     @Override
@@ -41,10 +43,18 @@ public class WebList extends Activity {
 
 
         listview = (ListView) findViewById(R.id.list);
-
+        bt01 = (Button) findViewById(R.id.button3);
         MyArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         listview.setAdapter(MyArrayAdapter);
 
+        bt01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(WebList.this,MainView.class);
+                startActivity(intent);
+            }
+        });
 
         Cursor cursor = dbHelper.select();    //取得SQLite類別的回傳值:Cursor物件
         cursor.moveToFirst();

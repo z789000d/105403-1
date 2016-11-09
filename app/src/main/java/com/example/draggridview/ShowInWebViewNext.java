@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.net.URL;
@@ -32,6 +33,7 @@ public class ShowInWebViewNext extends Activity {
     Handler handler=new Handler();
     MyDataDB dbHelper;
     String Array;
+    Button bt01;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class ShowInWebViewNext extends Activity {
 //		TextView otherTv1 = (TextView)otherLayout.findViewById(R.id.words_home_function_1);
 
 
-
+        bt01 = (Button) findViewById(R.id.button3);
         mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
 
 
@@ -70,7 +72,15 @@ public class ShowInWebViewNext extends Activity {
         }while (cursor.moveToNext());
         // for (int x=1; x<ArrayTextSplit.length ;x++) {
 
-
+        bt01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("edit",Array);
+                intent.setClass(ShowInWebViewNext.this,NewUrlNext.class);
+                startActivity(intent);
+            }
+        });
 
 
 

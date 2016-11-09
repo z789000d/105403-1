@@ -43,7 +43,7 @@ public class ShowInWebView extends Activity {
 	String Array;
 	String edit1;
 	String Url;
-
+	Button bt01;
 
 
 	@Override
@@ -53,6 +53,7 @@ public class ShowInWebView extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_showinwebview);
+		bt01 = (Button)findViewById(R.id.button3);
 
 		Bundle bundle = this.getIntent().getExtras();
 		Array = bundle.getString("Array");
@@ -69,7 +70,6 @@ public class ShowInWebView extends Activity {
 
 		mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
 
-
 				Thread threadc =new Thread(){
 
 					Thread threadB = new Thread(new Runnable() {
@@ -84,7 +84,6 @@ public class ShowInWebView extends Activity {
 									//以下去除div標籤
 									ArrayTextSplit[x] = ArrayTextSplit[x].replace("<div>", "");
 									ArrayTextSplit[x] = ArrayTextSplit[x].replace("</div>","");
-
 									Log.e("22",ArrayTextSplit[x]);
 									//Log.e("123123", Integer.toString(cloclk));
 								}
@@ -118,6 +117,51 @@ public class ShowInWebView extends Activity {
 					}
 				};
 				threadc.start();
+				bt01.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						LayoutInflater inflater = LayoutInflater.from(ShowInWebView.this);
+						final View v = inflater.inflate(R.layout.alertdialog_use, null);
+						final AlertDialog.Builder dialog = new AlertDialog.Builder(ShowInWebView.this);
+
+						dialog.setTitle("輸入名稱");
+						dialog.setView(v);
+						dialog.setMessage("輸入網頁名稱");
+						dialog.setPositiveButton("確定",new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface arg0, int arg1) {
+								// TODO Auto-generated method stub
+								MyDataDB db = new MyDataDB(ShowInWebView.this);
+								EditText editText = (EditText) (v.findViewById(R.id.editText1));
+
+								edit1 =  editText.getText().toString();
+								for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
+
+									db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}","").replace("..",Url),edit1);
+
+
+								}
+
+
+
+								Intent intent = new Intent();
+								intent.putExtra("edit",edit1);
+								intent.setClass(ShowInWebView.this,WebList.class);
+								startActivity(intent);
+							}
+
+						});
+						dialog.setNeutralButton("取消",new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface arg0, int arg1) {
+								// TODO Auto-generated method stub
+
+							}
+
+						});
+						dialog.show();
+					}
+				});
 
 			}
 

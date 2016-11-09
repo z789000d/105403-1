@@ -56,7 +56,7 @@ public class ListViewCheckboxesActivity extends Activity
     ActionBar actionBar;
     Handler handler=new Handler();
     String Url;
-
+    Button bt01;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -68,7 +68,7 @@ public class ListViewCheckboxesActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         actionBar = getActionBar();
-
+        bt01 = (Button)findViewById(R.id.button3);
         listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
 
@@ -163,7 +163,40 @@ public class ListViewCheckboxesActivity extends Activity
             }
         };
         threadc.start();
+        bt01.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                StringBuffer responseText = new StringBuffer();
+                // responseText.append("The following were selected...\n");
+
+                ArrayList<States> stateList = dataAdapter.stateList;
+
+
+                for(int i=0;i<stateList.size();i++)
+                {
+                    States state = stateList.get(i);
+
+                    if(state.isSelected())
+                    {
+                        responseText.append("\n"+"----" + state.getName());
+                    }
+                }
+
+
+                String ArrayText =  responseText.toString();
+
+
+//                Toast.makeText(getApplicationContext(),
+//                        responseText, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                intent.putExtra("Array",ArrayText);
+                intent.putExtra("Url",Url);
+                intent.setClass(ListViewCheckboxesActivity.this,ShowInWebView.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

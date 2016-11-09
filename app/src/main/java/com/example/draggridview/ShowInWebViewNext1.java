@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.draggridview.DragGridView.OnChanageListener;
@@ -37,6 +38,7 @@ public class ShowInWebViewNext1 extends Activity {
 	String Array,Array1;
 	String edit1;
 	String Url;
+	Button bt01;
 
 
 
@@ -47,6 +49,7 @@ public class ShowInWebViewNext1 extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_showinwebview_next1);
+		bt01 = (Button)findViewById(R.id.button3);
 
 		Bundle bundle = this.getIntent().getExtras();
 		Array = bundle.getString("Array");
@@ -114,6 +117,53 @@ public class ShowInWebViewNext1 extends Activity {
 				};
 				threadc.start();
 
+
+
+			bt01.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					LayoutInflater inflater = LayoutInflater.from(ShowInWebViewNext1.this);
+					final View v = inflater.inflate(R.layout.alertdialog_use, null);
+					final AlertDialog.Builder dialog = new AlertDialog.Builder(ShowInWebViewNext1.this);
+
+					dialog.setTitle("輸入名稱");
+
+					dialog.setMessage("是否加入至"+Array1);
+					dialog.setPositiveButton("確定",new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+							MyDataDB db = new MyDataDB(ShowInWebViewNext1.this);
+
+
+							for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
+
+								db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}","").replace("..",Url),Array1);
+
+
+							}
+
+
+
+							Intent intent = new Intent();
+							intent.putExtra("edit1",Array1);
+							intent.putExtra("edit",edit1);
+							intent.setClass(ShowInWebViewNext1.this,WebList.class);
+							startActivity(intent);
+						}
+
+					});
+					dialog.setNeutralButton("取消",new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+
+						}
+
+					});
+					dialog.show();
+				}
+			});
 			}
 
 

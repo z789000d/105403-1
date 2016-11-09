@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -49,7 +50,7 @@ public class ListViewCheckboxesActivityNext extends Activity
     Handler handler=new Handler();
     String Url;
     String Array;
-
+    Button bt01;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -59,9 +60,9 @@ public class ListViewCheckboxesActivityNext extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_next);
+        setContentView(R.layout.main);
         actionBar = getActionBar();
-
+        bt01 =(Button)findViewById(R.id.button3);
         listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
 
@@ -102,7 +103,38 @@ public class ListViewCheckboxesActivityNext extends Activity
         });
 
 
+        bt01.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StringBuffer responseText = new StringBuffer();
+                // responseText.append("The following were selected...\n");
 
+                ArrayList<States> stateList = dataAdapter.stateList;
+
+
+                for(int i=0;i<stateList.size();i++)
+                {
+                    States state = stateList.get(i);
+
+                    if(state.isSelected())
+                    {
+                        responseText.append("\n"+"----" + state.getName());
+                    }
+                }
+                String ArrayText =  responseText.toString();
+
+
+//                Toast.makeText(getApplicationContext(),
+//                        responseText, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                intent.putExtra("Array",ArrayText);
+                intent.putExtra("edit",Array);
+                intent.putExtra("Url",Url);
+                intent.setClass(ListViewCheckboxesActivityNext.this,ShowInWebViewNext1.class);
+                startActivity(intent);
+            }
+        });
 
 
 

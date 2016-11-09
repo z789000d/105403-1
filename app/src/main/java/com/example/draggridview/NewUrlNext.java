@@ -16,7 +16,7 @@ public class NewUrlNext extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_url_next);
+        setContentView(R.layout.activity_new_url);
         Bundle bundle = this.getIntent().getExtras();
         Array = bundle.getString("edit");
         Log.d("Array1",Array);

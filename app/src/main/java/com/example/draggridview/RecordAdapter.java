@@ -1,6 +1,7 @@
 package com.example.draggridview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
@@ -10,6 +11,7 @@ import android.text.style.ClickableSpan;
 import android.text.util.Linkify;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +69,10 @@ public class RecordAdapter extends BaseAdapter {
 //            words.setText("<a href=\"http://www.ntub.edu.tw/\" title=\"行政單位\"><div class=\"menu-item\">行政單位</div></a>");
             words.setMovementMethod(TextViewFixTouchConsume.LocalLinkMovementMethod.getInstance());
             words.setText(Html.fromHtml(wordsStr));
+            words.setBackgroundColor(Color.RED);
+            words.setLinkTextColor(Color.BLACK);
+            words.setMinHeight(300);
+            words.setGravity(Gravity.CENTER);
 
 
 
@@ -85,6 +91,11 @@ public class RecordAdapter extends BaseAdapter {
 //            words.setText("<a href=\"http://www.ntub.edu.tw/\" title=\"行政單位\"><div class=\"menu-item\">行政單位</div></a>");
             words.setMovementMethod(TextViewFixTouchConsume.LocalLinkMovementMethod.getInstance());
             words.setText(Html.fromHtml(wordsStr));
+            words.setBackgroundColor(Color.RED);
+            words.setLinkTextColor(Color.BLACK);
+            words.setMinHeight(300);
+            words.setGravity(Gravity.CENTER);
+
 
 
 //            WebView words =(WebView) tem.findViewById(R.id.words_home_function_1);
