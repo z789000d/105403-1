@@ -12,10 +12,6 @@
         "source": "/Users/wei/105403/app/src/main/res/layout/main_next.xml"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/layout/forgot.xml",
-        "source": "/home/xpizta/androidproject/105403/app/src/main/res/layout/forgot.xml"
-    },
-    {
         "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/layout/grid_item.xml",
         "source": "/home/xpizta/androidproject/105403/app/src/main/res/layout/grid_item.xml"
     },
