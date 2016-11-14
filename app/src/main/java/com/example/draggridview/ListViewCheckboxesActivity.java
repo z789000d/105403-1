@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -43,6 +44,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class ListViewCheckboxesActivity extends Activity
 {
+    ProgressDialog dialog;
     String te[] = new String[100];
     MyCustomAdapter dataAdapter = null;
     EditText txtsearch;
@@ -122,7 +124,7 @@ public class ListViewCheckboxesActivity extends Activity
             Thread threadB = new Thread(new Runnable() {
                 public void run() {
                     try {
-
+                        handler.post(runnableDialog);
                         Html();
 
                         Log.e("thb", "end");
@@ -319,11 +321,22 @@ public class ListViewCheckboxesActivity extends Activity
 
 
     }
+    Runnable runnableDialog = new Runnable(){
+        @Override
+        public void run() {
+            dialog = ProgressDialog.show(ListViewCheckboxesActivity.this,
+                    "讀取中", "請等待3秒...",true);
+        }
+
+    };
+
+
     Runnable runnableUi = new Runnable(){
         @Override
         public void run() {
             //更新界面
             listView.setAdapter(dataAdapter);
+            dialog.dismiss();
 
         }
 

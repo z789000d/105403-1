@@ -16,12 +16,12 @@
         "source": "/Users/wei/105403/app/src/main/res/drawable/corrent.png"
     },
     {
-        "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/drawable/search1.png",
-        "source": "/home/xpizta/androidproject/105403/app/src/main/res/drawable/search1.png"
-    },
-    {
         "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/drawable/nextother.png",
         "source": "/home/xpizta/androidproject/105403/app/src/main/res/drawable/nextother.png"
+    },
+    {
+        "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/drawable/search1.png",
+        "source": "/home/xpizta/androidproject/105403/app/src/main/res/drawable/search1.png"
     },
     {
         "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/drawable/registration_background.png",
@@ -60,12 +60,12 @@
         "source": "/Users/wei/105403/app/src/main/res/drawable/register_uname.png"
     },
     {
-        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_password.png",
-        "source": "/Users/wei/105403/app/src/main/res/drawable/register_password.png"
-    },
-    {
         "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/just.png",
         "source": "/Users/wei/105403/app/src/main/res/drawable/just.png"
+    },
+    {
+        "merged": "/Users/wei/105403/app/build/intermediates/res/merged/debug/drawable/register_password.png",
+        "source": "/Users/wei/105403/app/src/main/res/drawable/register_password.png"
     },
     {
         "merged": "/home/xpizta/androidproject/105403/app/build/intermediates/res/merged/debug/drawable/arrow1.png",
