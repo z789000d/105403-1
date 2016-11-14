@@ -134,20 +134,26 @@ public class ShowInWebView extends Activity {
 								MyDataDB db = new MyDataDB(ShowInWebView.this);
 								EditText editText = (EditText) (v.findViewById(R.id.editText1));
 
-								edit1 =  editText.getText().toString();
-								for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
-
-									db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}","").replace("..",Url),edit1);
-
+								edit1 = editText.getText().toString();
+								if (edit1.equals("") || edit1.equals(null)) {
 
 								}
+								else
+								{
+									for (int x = 0; x < ArrayTextSplit.length - 1; x++) {
+
+										db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=", "").replace("}", "").replace("..", Url), edit1);
 
 
+									}
 
-								Intent intent = new Intent();
-								intent.putExtra("edit",edit1);
-								intent.setClass(ShowInWebView.this,WebList.class);
-								startActivity(intent);
+
+									Intent intent = new Intent();
+									intent.putExtra("edit", edit1);
+									intent.setClass(ShowInWebView.this, WebList.class);
+									startActivity(intent);
+
+								}
 							}
 
 						});
@@ -249,21 +255,26 @@ public class ShowInWebView extends Activity {
 					// TODO Auto-generated method stub
 					MyDataDB db = new MyDataDB(ShowInWebView.this);
 					EditText editText = (EditText) (v.findViewById(R.id.editText1));
-
-					edit1 =  editText.getText().toString();
-					for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
-
-						db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}","").replace("..",Url),edit1);
-
+					edit1 = editText.getText().toString();
+					 if (edit1.equals("") || edit1.equals(null)) {
 
 					}
+					else
+					 {
+						 for (int x = 0; x < ArrayTextSplit.length - 1; x++) {
+
+							 db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=", "").replace("}", "").replace("..", Url), edit1);
 
 
+						 }
 
-					Intent intent = new Intent();
-					intent.putExtra("edit",edit1);
-					intent.setClass(ShowInWebView.this,WebList.class);
-					startActivity(intent);
+
+						 Intent intent = new Intent();
+						 intent.putExtra("edit", edit1);
+						 intent.setClass(ShowInWebView.this, WebList.class);
+						 startActivity(intent);
+
+					 }
 				}
 
 			});

@@ -20,5 +20,6 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.0'
-    compile files('/home/xpizta/androidproject/105403/libs/jsoup-1.9.2.jar')
+    // compile files('/home/xpizta/androidproject/105403/libs/jsoup-1.9.2.jar')
+    compile files('/Users/wei/未命名檔案夾/105403-1/libs/jsoup-1.9.2.jar')
 }

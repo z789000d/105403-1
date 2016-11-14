@@ -3,6 +3,7 @@ package com.example.draggridview;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -51,6 +52,7 @@ public class ListViewCheckboxesActivityNext extends Activity
     String Url;
     String Array;
     Button bt01;
+    ProgressDialog dialog;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -149,7 +151,7 @@ public class ListViewCheckboxesActivityNext extends Activity
             Thread threadB = new Thread(new Runnable() {
                 public void run() {
                     try {
-
+                        handler.post(runnableDialog);
                         Html();
 
                         Log.e("thb", "end");
@@ -313,11 +315,20 @@ public class ListViewCheckboxesActivityNext extends Activity
 
 
     }
+    Runnable runnableDialog = new Runnable(){
+        @Override
+        public void run() {
+           dialog = ProgressDialog.show(ListViewCheckboxesActivityNext.this,
+                    "讀取中", "載入中",true);
+        }
+
+    };
     Runnable runnableUi = new Runnable(){
         @Override
         public void run() {
             //更新界面
             listView.setAdapter(dataAdapter);
+            dialog.dismiss();
 
         }
 
@@ -384,13 +395,19 @@ public class ListViewCheckboxesActivityNext extends Activity
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            States state = stateList.get(position);
+            try {
+                States state = stateList.get(position);
 
-            holder.code.setText(" (" + state.getCode() + ")");
-            holder.name.setText(Html.fromHtml(state.getName()));
-            holder.name.setChecked(state.isSelected());
+                holder.code.setText(" (" + state.getCode() + ")");
+                holder.name.setText(Html.fromHtml(state.getName()));
+                holder.name.setChecked(state.isSelected());
 
-            holder.name.setTag(state);
+                holder.name.setTag(state);
+            }catch (java.lang.NullPointerException e)
+            {
+                Log.e("33333","陣列不夠");
+            }
+
 
             return convertView;
         }

@@ -325,7 +325,7 @@ public class ListViewCheckboxesActivity extends Activity
         @Override
         public void run() {
             dialog = ProgressDialog.show(ListViewCheckboxesActivity.this,
-                    "讀取中", "請等待3秒...",true);
+                    "讀取中", "載入中",true);
         }
 
     };
@@ -403,13 +403,18 @@ public class ListViewCheckboxesActivity extends Activity
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            States state = stateList.get(position);
+           try {
+               States state = stateList.get(position);
 
-            holder.code.setText(" (" + state.getCode() + ")");
-            holder.name.setText(Html.fromHtml(state.getName()));
-            holder.name.setChecked(state.isSelected());
+               holder.code.setText(" (" + state.getCode() + ")");
+               holder.name.setText(Html.fromHtml(state.getName()));
+               holder.name.setChecked(state.isSelected());
 
-            holder.name.setTag(state);
+               holder.name.setTag(state);
+           }catch (java.lang.NullPointerException e)
+           {
+               Log.e("33333","陣列不夠");
+           }
 
             return convertView;
         }

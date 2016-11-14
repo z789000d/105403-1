@@ -69,6 +69,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/reenter"
+            android:id="@+id/b02"
             android:layout_toRightOf="@+id/b01"
             android:layout_marginLeft="20dp"
             />

@@ -135,12 +135,17 @@ public class DragGridView extends GridView{
 
 		@Override
 		public void run() {
-			isDrag = true; //设置可以拖拽
-			mVibrator.vibrate(50); //震动一下
-			mStartDragItemView.setVisibility(View.INVISIBLE);//隐藏该item
+			try {
+				isDrag = true; //设置可以拖拽
+				mVibrator.vibrate(50); //震动一下
+				mStartDragItemView.setVisibility(View.INVISIBLE);//隐藏该item
 
-			//根据我们按下的点显示item镜像
-			createDragImage(mDragBitmap, mDownX, mDownY);
+				//根据我们按下的点显示item镜像
+				createDragImage(mDragBitmap, mDownX, mDownY);
+			}catch (java.lang.NullPointerException e)
+			{
+				Log.e("3333","拖曳到空的");
+			}
 		}
 	};
 
@@ -209,8 +214,13 @@ public class DragGridView extends GridView{
 					int moveX = (int) ev.getX();
 					int moveY = (int) ev.getY();
 					//如果我们在按下的item上面移动，只要不超过item的边界我们就不移除mRunnable
-					if (!isTouchInItem(mStartDragItemView, moveX, moveY)) {
-						mHandler.removeCallbacks(mLongClickRunnable);
+					try {
+						if (!isTouchInItem(mStartDragItemView, moveX, moveY)) {
+							mHandler.removeCallbacks(mLongClickRunnable);
+						}
+					}catch (java.lang.NullPointerException e)
+					{
+						 	Log.e("33333","按到空的");
 					}
 					break;
 				}
@@ -232,16 +242,20 @@ public class DragGridView extends GridView{
 	 * @return
 	 */
 	private boolean isTouchInItem(View dragView, int x, int y){
-		int leftOffset = dragView.getLeft();
-		int topOffset = dragView.getTop();
-		if(x < leftOffset || x > leftOffset + dragView.getWidth()){
-			return false;
-		}
+     try {
+		 int leftOffset = dragView.getLeft();
+		 int topOffset = dragView.getTop();
+		 if (x < leftOffset || x > leftOffset + dragView.getWidth()) {
+			 return false;
+		 }
 
-		if(y < topOffset || y > topOffset + dragView.getHeight()){
-			return false;
-		}
-
+		 if (y < topOffset || y > topOffset + dragView.getHeight()) {
+			 return false;
+		 }
+	 }catch (java.lang.NullPointerException e)
+	 {
+		  Log.e("3333","按到空的");
+	 }
 		return true;
 	}
 

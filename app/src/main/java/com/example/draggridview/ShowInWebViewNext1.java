@@ -135,7 +135,6 @@ public class ShowInWebViewNext1 extends Activity {
 							// TODO Auto-generated method stub
 							MyDataDB db = new MyDataDB(ShowInWebViewNext1.this);
 
-
 							for (int x=0; x<ArrayTextSplit.length-1 ;x++) {
 
 								db.insert(mSimpleAdapter.getItem(x).toString().replace("{words=","").replace("}","").replace("..",Url),Array1);

@@ -89,7 +89,7 @@ public class MyDataDB extends SQLiteOpenHelper {
     {
         SQLiteDatabase db=this.getWritableDatabase();
         Log.d("3333",name);
-        db.delete(TABLE_NAME, FIELD_NAME+"="+name,null);
+        db.delete(TABLE_NAME, FIELD_NAME+"='"+name+"';",null);
 
     }
 
