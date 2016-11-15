@@ -133,7 +133,7 @@ public class ListViewCheckboxesActivityNext extends Activity
                 intent.putExtra("Array",ArrayText);
                 intent.putExtra("edit",Array);
                 intent.putExtra("Url",Url);
-                intent.setClass(ListViewCheckboxesActivityNext.this,ShowInWebViewNext1.class);
+                intent.setClass(ListViewCheckboxesActivityNext.this,ShowInWebViewNewNext.class);
                 startActivity(intent);
             }
         });
@@ -476,7 +476,7 @@ public class ListViewCheckboxesActivityNext extends Activity
             intent.putExtra("Array",ArrayText);
             intent.putExtra("edit",Array);
             intent.putExtra("Url",Url);
-            intent.setClass(ListViewCheckboxesActivityNext.this,ShowInWebViewNext1.class);
+            intent.setClass(ListViewCheckboxesActivityNext.this,ShowInWebViewNewNext.class);
             startActivity(intent);
             return true;
         }

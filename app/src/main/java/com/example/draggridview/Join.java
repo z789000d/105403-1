@@ -53,7 +53,7 @@ public class Join extends Activity {
 //            public void onClick(View view) {
 //
 //                Intent intent = new Intent();
-//                intent.setClass(Join.this, JoinNext.class);
+//                intent.setClass(Join.this, FirstIcon.class);
 //                startActivity(intent);
 //                Join.this.finish();
 //                //

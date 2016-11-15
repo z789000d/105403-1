@@ -40,16 +40,16 @@
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/layout/main_next.xml"
     },
     {
+        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/layout/activity_first_icon.xml",
+        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/layout/activity_first_icon.xml"
+    },
+    {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/layout/register.xml",
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/layout/register.xml"
     },
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/layout/activity_new_url.xml",
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/layout/activity_new_url.xml"
-    },
-    {
-        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/layout/activity_forget.xml",
-        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/layout/activity_forget.xml"
     },
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/layout/activity_web_list.xml",

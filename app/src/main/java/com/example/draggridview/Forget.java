@@ -10,7 +10,7 @@ public class Forget extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget);
+        setContentView(R.layout.activity_first_icon);
 
         new Handler().postDelayed(new Runnable() {
             @Override
