@@ -48,8 +48,16 @@
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/register_password.png"
     },
     {
+        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/red.png",
+        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/red.png"
+    },
+    {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/firstpage1.png",
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/firstpage1.png"
+    },
+    {
+        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/question.png",
+        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/question.png"
     },
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/search.png",
@@ -64,12 +72,20 @@
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/reenter.png"
     },
     {
+        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/use.png",
+        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/use.png"
+    },
+    {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/registration_background.png",
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/registration_background.png"
     },
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/webview_border.xml",
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/webview_border.xml"
+    },
+    {
+        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/useword.png",
+        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/useword.png"
     },
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/register_uname.png",
@@ -102,6 +118,10 @@
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/mystyleword.png",
         "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/mystyleword.png"
+    },
+    {
+        "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/questionword.png",
+        "source": "/Users/wei/未命名檔案夾/105403-1/app/src/main/res/drawable/questionword.png"
     },
     {
         "merged": "/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/merged/debug/drawable/register_button.png",
