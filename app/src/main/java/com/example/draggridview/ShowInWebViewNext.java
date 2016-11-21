@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.net.URL;
 import java.util.*;
@@ -52,7 +55,14 @@ public class ShowInWebViewNext extends Activity {
 
 
         bt01 = (Button) findViewById(R.id.button3);
+
+        Typeface face = Typeface.createFromAsset(getAssets(),"fonts/wt040.ttf");
+        bt01.setTypeface(face);
+
+
+
         mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
+        mDragGridView.setBackgroundColor(Color.rgb(51,51,51));
 
 
         Cursor cursor = dbHelper.select();	//取得SQLite類別的回傳值:Cursor物件

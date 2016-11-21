@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,12 +34,17 @@ public class WebList extends Activity {
     String strGroup[] = new String[50];
     String remove[] = new String[100];
     Button bt01;
+    Cursor cursor;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_list);
+
+        final RelativeLayout background = (RelativeLayout) findViewById(R.id.back);
+        background.setBackgroundColor(Color.rgb(188,195,48));
+
         activity = this;
         dbHelper = new MyDataDB(this);
         db = dbHelper.getWritableDatabase();
@@ -44,6 +52,9 @@ public class WebList extends Activity {
 
         listview = (ListView) findViewById(R.id.list);
         bt01 = (Button) findViewById(R.id.button3);
+        Typeface face = Typeface.createFromAsset(getAssets(),"fonts/wt040.ttf");
+        bt01.setTypeface(face);
+
         MyArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         listview.setAdapter(MyArrayAdapter);
 
@@ -55,8 +66,10 @@ public class WebList extends Activity {
                 startActivity(intent);
             }
         });
+        try {
+             cursor = dbHelper.select();
+            //取得SQLite類別的回傳值:Cursor物件
 
-        Cursor cursor = dbHelper.select();    //取得SQLite類別的回傳值:Cursor物件
         cursor.moveToFirst();
 
         if (MyArrayAdapter.isEmpty()) // 如果適配器是空的直接新增進去
@@ -85,6 +98,16 @@ public class WebList extends Activity {
             }
 
         } while (cursor.moveToNext());
+        }catch (java.lang.RuntimeException e)
+        {
+
+
+//            Toast.makeText(activity, "請先新增版行", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent();
+//            intent.setClass(WebList.this, MainView.class);
+//            startActivity(intent);
+
+        }
 
         for (int i = 0; i <= listview.getAdapter().getCount(); i++)  //外循环是循环的次数
         {
@@ -102,6 +125,7 @@ public class WebList extends Activity {
                 }
             }
         }
+
         for(int i = 0 ; i<=listview.getAdapter().getCount()-1;i++)
         {
             strGroup[i]=listview.getAdapter().getItem(i).toString();

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -64,6 +65,7 @@ public class ShowInWebViewNewNext extends Activity {
 
 
 		mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
+		mDragGridView.setBackgroundColor(Color.rgb(51,51,51));
 
 
 				Thread threadc =new Thread(){
@@ -75,7 +77,7 @@ public class ShowInWebViewNewNext extends Activity {
 
 
 
-								for (int x=1; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+								for (int x=0; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
 									//以下去除div標籤
 									ArrayTextSplit[x] = ArrayTextSplit[x].replace("<div>", "");
@@ -124,7 +126,7 @@ public class ShowInWebViewNewNext extends Activity {
 					final View v = inflater.inflate(R.layout.alertdialog_use, null);
 					final AlertDialog.Builder dialog = new AlertDialog.Builder(ShowInWebViewNewNext.this);
 
-					dialog.setTitle("輸入名稱");
+					dialog.setTitle("Design Your Web");
 
 					dialog.setMessage("是否加入至"+Array1);
 					dialog.setPositiveButton("確定",new DialogInterface.OnClickListener() {

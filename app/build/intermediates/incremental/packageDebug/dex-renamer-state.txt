@@ -1,0 +1,7 @@
+#Mon Nov 21 18:13:18 CST 2016
+base.0=/home/xpizta/androidproject/105403-1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_aec957812e925246867721cf7873d6efd9d2badf
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/home/xpizta/androidproject/105403-1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_971f369f74829277e4391555862183ab139aa69b/classes.dex
+base.1=/home/xpizta/androidproject/105403-1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_971f369f74829277e4391555862183ab139aa69b
+file.0=/home/xpizta/androidproject/105403-1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_aec957812e925246867721cf7873d6efd9d2badf/classes.dex

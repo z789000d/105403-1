@@ -12,8 +12,11 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +24,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -44,6 +48,7 @@ public class ShowInWebView extends Activity {
 	String edit1;
 	String Url;
 	Button bt01;
+	Toast toast;
 
 
 	@Override
@@ -61,6 +66,10 @@ public class ShowInWebView extends Activity {
 		ArrayTextSplit = Array.split("----");
 		MyDataDB dbHelper = new MyDataDB(this);
 		db = dbHelper.getWritableDatabase();
+		toast = Toast.makeText(this, "請輸入內容", Toast.LENGTH_SHORT);
+
+
+
 
 		mSimpleAdapter = new RecordAdapter(this,dataSourceList);
 //		LayoutInflater inflater = getLayoutInflater();
@@ -69,6 +78,7 @@ public class ShowInWebView extends Activity {
 
 
 		mDragGridView = (DragGridView) findViewById(R.id.dragGridView);
+		mDragGridView.setBackgroundColor(Color.rgb(51,51,51));
 
 				Thread threadc =new Thread(){
 
@@ -76,10 +86,7 @@ public class ShowInWebView extends Activity {
 						public void run(){
 							try {
 
-
-
-
-								for (int x=1; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
+								for (int x=0; x<ArrayTextSplit.length ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
 									//以下去除div標籤
 									ArrayTextSplit[x] = ArrayTextSplit[x].replace("<div>", "");
@@ -112,6 +119,7 @@ public class ShowInWebView extends Activity {
 						}
 						catch (Exception e){
 							e.printStackTrace();
+//							Log.e("excep", e.toString());
 						}
 
 					}
@@ -124,9 +132,9 @@ public class ShowInWebView extends Activity {
 						final View v = inflater.inflate(R.layout.alertdialog_use, null);
 						final AlertDialog.Builder dialog = new AlertDialog.Builder(ShowInWebView.this);
 
-						dialog.setTitle("輸入名稱");
+						dialog.setTitle("Design Your Web");
 						dialog.setView(v);
-						dialog.setMessage("輸入網頁名稱");
+						dialog.setMessage("輸入版型名稱");
 						dialog.setPositiveButton("確定",new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface arg0, int arg1) {
@@ -136,6 +144,7 @@ public class ShowInWebView extends Activity {
 
 								edit1 = editText.getText().toString();
 								if (edit1.equals("") || edit1.equals(null)) {
+									toast.show();
 
 								}
 								else
@@ -239,6 +248,7 @@ public class ShowInWebView extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
+
 		int id = item.getItemId();
 
 		if (id == R.id.action) {
@@ -256,7 +266,30 @@ public class ShowInWebView extends Activity {
 					MyDataDB db = new MyDataDB(ShowInWebView.this);
 					EditText editText = (EditText) (v.findViewById(R.id.editText1));
 					edit1 = editText.getText().toString();
-					 if (edit1.equals("") || edit1.equals(null)) {
+					if (edit1.equals("") || edit1.equals(null)) {
+//						new Thread(new Runnable() {
+//
+//							@Override
+//							public void run() {
+//								new Thread(new Runnable() {
+//
+//									Handler mHandler = new Handler(Looper.getMainLooper()) {
+//										@Override
+//										public void dispatchMessage(Message msg) {
+//											Toast.makeText(getApplicationContext(), "hello ttdevs", Toast.LENGTH_LONG).show();
+//										}
+//									};
+//
+//									@Override
+//									public void run() {
+//										mHandler.sendEmptyMessage(0);
+//									}
+//								}).start();
+//							}
+//						}).start();
+//						Log.e("toast","in");
+
+
 
 					}
 					else
@@ -273,7 +306,6 @@ public class ShowInWebView extends Activity {
 						 intent.putExtra("edit", edit1);
 						 intent.setClass(ShowInWebView.this, WebList.class);
 						 startActivity(intent);
-
 					 }
 				}
 

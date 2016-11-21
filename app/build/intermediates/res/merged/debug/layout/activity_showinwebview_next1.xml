@@ -35,14 +35,13 @@
 
 
     <com.example.draggridview.DragGridView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="6dp"
         android:id="@+id/dragGridView"
         android:listSelector="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="@android:color/transparent"
-        android:verticalSpacing="10dip"
-        android:horizontalSpacing="10dip"
+        android:horizontalSpacing="15dip"
         android:stretchMode="columnWidth"
         android:gravity="center"
         android:numColumns="3"

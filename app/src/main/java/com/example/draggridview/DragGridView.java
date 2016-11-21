@@ -24,7 +24,7 @@ public class DragGridView extends GridView{
 	/**
 	 * DragGridView的item长按响应的时间， 默认是1000毫秒，也可以自行设置
 	 */
-	private long dragResponseMS = 1000;
+	private long dragResponseMS = 500;
 
 	/**
 	 * 是否可以拖拽，默认不可以
@@ -220,7 +220,7 @@ public class DragGridView extends GridView{
 						}
 					}catch (java.lang.NullPointerException e)
 					{
-						 	Log.e("33333","按到空的");
+						Log.e("33333","按到空的");
 					}
 					break;
 				}
@@ -242,20 +242,20 @@ public class DragGridView extends GridView{
 	 * @return
 	 */
 	private boolean isTouchInItem(View dragView, int x, int y){
-     try {
-		 int leftOffset = dragView.getLeft();
-		 int topOffset = dragView.getTop();
-		 if (x < leftOffset || x > leftOffset + dragView.getWidth()) {
-			 return false;
-		 }
+		try {
+			int leftOffset = dragView.getLeft();
+			int topOffset = dragView.getTop();
+			if (x < leftOffset || x > leftOffset + dragView.getWidth()) {
+				return false;
+			}
 
-		 if (y < topOffset || y > topOffset + dragView.getHeight()) {
-			 return false;
-		 }
-	 }catch (java.lang.NullPointerException e)
-	 {
-		  Log.e("3333","按到空的");
-	 }
+			if (y < topOffset || y > topOffset + dragView.getHeight()) {
+				return false;
+			}
+		}catch (java.lang.NullPointerException e)
+		{
+			Log.e("3333","按到空的");
+		}
 		return true;
 	}
 
@@ -438,4 +438,3 @@ public class DragGridView extends GridView{
 		public void onChange(int form, int to);
 	}
 }
-

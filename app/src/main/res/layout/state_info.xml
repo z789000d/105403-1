@@ -22,7 +22,6 @@
         android:layout_alignBaseline="@id/checkBox1"
         android:layout_alignBottom="@id/checkBox1"
         android:layout_toRightOf="@id/checkBox1"
-        android:text="textview"
         android:textColor="#ff000000"/>
 
 </RelativeLayout>

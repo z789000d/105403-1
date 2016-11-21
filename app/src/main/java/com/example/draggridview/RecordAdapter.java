@@ -2,12 +2,16 @@ package com.example.draggridview;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.text.util.Linkify;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -64,16 +68,26 @@ public class RecordAdapter extends BaseAdapter {
 
 
             TextViewFixTouchConsume words =(TextViewFixTouchConsume) temRl.findViewById(R.id.words_home_function_1);
+
+            Spannable s = (Spannable) Html.fromHtml(wordsStr);
+            for (URLSpan u: s.getSpans(0, s.length(), URLSpan.class)) {
+                s.setSpan(new UnderlineSpan() {
+                    public void updateDrawState(TextPaint tp) {
+                        tp.setUnderlineText(false);
+                    }
+                }, s.getSpanStart(u), s.getSpanEnd(u), 0);
+            }
+
 //            words.setText(Html.fromHtml("<a href=\"http://pres.ntub.edu.tw/\" >\n 校長室\n</a>"));
             //words.setTextViewHTML(wordsStr);
 //            words.setText("<a href=\"http://www.ntub.edu.tw/\" title=\"行政單位\"><div class=\"menu-item\">行政單位</div></a>");
             words.setMovementMethod(TextViewFixTouchConsume.LocalLinkMovementMethod.getInstance());
-            words.setText(Html.fromHtml(wordsStr));
-            words.setBackgroundColor(Color.RED);
+//            words.setText(Html.fromHtml(wordsStr));
+            words.setText(s);
+            words.setBackgroundColor(Color.rgb(204, 51, 51));
             words.setLinkTextColor(Color.BLACK);
-            words.setMinHeight(300);
+//            words.setMinHeight(300);
             words.setGravity(Gravity.CENTER);
-
 
 
 
@@ -86,14 +100,26 @@ public class RecordAdapter extends BaseAdapter {
 
 
             TextViewFixTouchConsume words =(TextViewFixTouchConsume) tem.findViewById(R.id.words_home_function_1);
+
+            Spannable s = (Spannable) Html.fromHtml(wordsStr);
+            for (URLSpan u: s.getSpans(0, s.length(), URLSpan.class)) {
+                s.setSpan(new UnderlineSpan() {
+                    public void updateDrawState(TextPaint tp) {
+                        tp.setUnderlineText(false);
+                    }
+                }, s.getSpanStart(u), s.getSpanEnd(u), 0);
+            }
 //            words.setText(Html.fromHtml("<a href=\"http://pres.ntub.edu.tw/\" >\n 校長室\n</a>"));
 //            words.setTextViewHTML(wordsStr);
 //            words.setText("<a href=\"http://www.ntub.edu.tw/\" title=\"行政單位\"><div class=\"menu-item\">行政單位</div></a>");
             words.setMovementMethod(TextViewFixTouchConsume.LocalLinkMovementMethod.getInstance());
-            words.setText(Html.fromHtml(wordsStr));
-            words.setBackgroundColor(Color.RED);
+//            words.setText(Html.fromHtml(wordsStr));
+            words.setText(s);
+            words.setBackgroundColor(Color.rgb(204, 51, 51));
             words.setLinkTextColor(Color.BLACK);
-            words.setMinHeight(300);
+//            words.setBackgroundColor(Color.RED);
+//            words.setLinkTextColor(Color.BLACK);
+//            words.setMinHeight(300);
             words.setGravity(Gravity.CENTER);
 
 

@@ -38,13 +38,14 @@ import java.util.ArrayList;
 public class ListViewCheckboxesActivityNext extends Activity
 {
     String te[] = new String[100];
+    String te1[] = new String[100];
     MyCustomAdapter dataAdapter = null;
     EditText txtsearch;
     ArrayList<States> stateList = new ArrayList<States>();
     ListView listView ;
     URL  url;
     int x; //迴圈
-    States _states = new States("x",te[x],false);
+    States _states = new States(te1[x],false);
     String [] status = new String[100];
     String [] number = new String[100];
     ActionBar actionBar;
@@ -71,14 +72,14 @@ public class ListViewCheckboxesActivityNext extends Activity
         Bundle bundle = this.getIntent().getExtras();
         Array = bundle.getString("edit");
         Log.d("Array2",Array);
-           Url = bundle.getString("Url");
-            try {
-             url = new URL(Url);
-                }
-            catch (MalformedURLException e)
-                {
-                    e.printStackTrace();
-                }
+        Url = bundle.getString("Url");
+        try {
+            url = new URL(Url);
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
 
         txtsearch = (EditText) findViewById(R.id.txtsearch);
 
@@ -93,7 +94,7 @@ public class ListViewCheckboxesActivityNext extends Activity
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                    search();
+                search();
 
 
             }
@@ -215,11 +216,30 @@ public class ListViewCheckboxesActivityNext extends Activity
                     for ( x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
                         title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
+
                         te[x] = title[x].toString();
+                        if(te[x].contains("img"))
+                        {
+                            te[x]="空的";
+                        }
+
+
 
                         //Log.e("123123", Integer.toString(cloclk));
                     }
-
+                    int b =0;
+                    for(int i =0;i<te.length;i++){
+                        if(te[i].equals("空的"))
+                        {
+                            Log.e("i","1");
+                        }
+                        else
+                        {
+                            te1[b]=te[i];
+                            b=b+1;
+                            Log.e("b","1");
+                        }
+                    }
                 } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -234,43 +254,44 @@ public class ListViewCheckboxesActivityNext extends Activity
     public void search()
     {
         for(int i=0 ; i<stateList.size(); i++)
+        {
+            if(stateList.get(i).isSelected()==true)
+
             {
-                if(stateList.get(i).isSelected()==true)
-
+                for(x=0; x<100; x++)
                 {
-                    for(x=0; x<100; x++)
-                        {
-                            if(stateList.get(i).getName().equals(te[x]))
+                    if(stateList.get(i).getName().equals(te1[x]))
 
-                                {
-                                    status[x]="a"+te[x]+"true";
-                                    Log.e("333",String.valueOf(x));
+                    {
+                        status[x]=te1[x]+"true";
+                        Log.e("333",String.valueOf(x));
 
-                                }
-                        }
-
+                    }
 
                 }
 
-            }//搜尋判斷選擇是true跟改陣列內容
+
+            }
+
+        }//搜尋判斷選擇是true跟改陣列內容
 
 
 
         dataAdapter.clear();
-        for( x=0 ; x<100; x++){
+        for( x=0 ; x<80 ; x++){
 
 
 
-            if(te[x].contains(txtsearch.getText().toString())){
+            if(te1[x].contains(txtsearch.getText().toString())){
 
-                if(status[x].equals("a"+te[x]+"true"))
-                    {
-                        _states = new States("a", te[x], true);
-                        stateList.add(_states);
-                    }
+                if(status[x].equals(te1[x]+"true"))
+                {
+                    _states = new States( te1[x], true);
+                    stateList.add(_states);
+                }
                 else {
-                    // Log.e(x+"",te[x]);
-                    _states = new States("a", te[x], false);
+                    // Log.e(x+"",te1[x]);
+                    _states = new States(te1[x], false);
                     //Log.e("333",_states.getName());
                     stateList.add(_states);
                 }//搜尋判斷選擇是true還是false再分別加入
@@ -287,8 +308,8 @@ public class ListViewCheckboxesActivityNext extends Activity
         //Array list of countries
 
         for ( x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
-            status[x] ="a"+te[x]+"false";
-            _states = new States("a",te[x],false);
+            status[x] =te1[x]+"false";
+            _states = new States(te1[x],false);
 
             stateList.add(_states);
 
@@ -318,7 +339,7 @@ public class ListViewCheckboxesActivityNext extends Activity
     Runnable runnableDialog = new Runnable(){
         @Override
         public void run() {
-           dialog = ProgressDialog.show(ListViewCheckboxesActivityNext.this,
+            dialog = ProgressDialog.show(ListViewCheckboxesActivityNext.this,
                     "讀取中", "載入中",true);
         }
 
@@ -398,7 +419,7 @@ public class ListViewCheckboxesActivityNext extends Activity
             try {
                 States state = stateList.get(position);
 
-                holder.code.setText(" (" + state.getCode() + ")");
+
                 holder.name.setText(Html.fromHtml(state.getName()));
                 holder.name.setChecked(state.isSelected());
 

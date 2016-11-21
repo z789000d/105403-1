@@ -11,6 +11,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -46,19 +48,21 @@ public class ListViewCheckboxesActivity extends Activity
 {
     ProgressDialog dialog;
     String te[] = new String[100];
+    String te1[] = new String[100];
     MyCustomAdapter dataAdapter = null;
     EditText txtsearch;
     ArrayList<States> stateList = new ArrayList<States>();
     ListView listView ;
     URL  url;
     int x; //迴圈
-    States _states = new States("x",te[x],false);
+    States _states = new States(te[x],false);
     String [] status = new String[100];
     String [] number = new String[100];
     ActionBar actionBar;
     Handler handler=new Handler();
     String Url;
     Button bt01;
+    int b;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -69,20 +73,24 @@ public class ListViewCheckboxesActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        final RelativeLayout background = (RelativeLayout) findViewById(R.id.back);
+        background.setBackgroundColor(Color.rgb(188,195,48));
+
+
         actionBar = getActionBar();
         bt01 = (Button)findViewById(R.id.button3);
         listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
 
         Bundle bundle = this.getIntent().getExtras();
-           Url = bundle.getString("Url");
-            try {
-             url = new URL(Url);
-                }
-            catch (MalformedURLException e)
-                {
-                    e.printStackTrace();
-                }
+        Url = bundle.getString("Url");
+        try {
+            url = new URL(Url);
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
 
         txtsearch = (EditText) findViewById(R.id.txtsearch);
 
@@ -97,7 +105,7 @@ public class ListViewCheckboxesActivity extends Activity
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                    search();
+                search();
 
 
             }
@@ -221,11 +229,30 @@ public class ListViewCheckboxesActivity extends Activity
                     for ( x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
 
                         title[x] = doc.select("a").get(x);//抓取為tr且有class屬性的所有Tag get動態抓第幾段li
+
                         te[x] = title[x].toString();
+                        if(te[x].contains("img"))
+                        {
+                            te[x]="空的";
+                        }
+
+
 
                         //Log.e("123123", Integer.toString(cloclk));
                     }
-
+                    int b =0;
+                    for(int i =0;i<te.length;i++){
+                        if(te[i].equals("空的"))
+                        {
+                            Log.e("i","1");
+                        }
+                        else
+                        {
+                            te1[b]=te[i];
+                            b=b+1;
+                            Log.e("b","1");
+                        }
+                    }
                 } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -235,48 +262,50 @@ public class ListViewCheckboxesActivity extends Activity
             }
         }).start();
 
+
+
     }
 
     public void search()
     {
         for(int i=0 ; i<stateList.size(); i++)
+        {
+            if(stateList.get(i).isSelected()==true)
+
             {
-                if(stateList.get(i).isSelected()==true)
-
+                for(x=0; x<100; x++)
                 {
-                    for(x=0; x<100; x++)
-                        {
-                            if(stateList.get(i).getName().equals(te[x]))
+                    if(stateList.get(i).getName().equals(te1[x]))
 
-                                {
-                                    status[x]="a"+te[x]+"true";
-                                    Log.e("333",String.valueOf(x));
+                    {
+                        status[x]="a"+te1[x]+"true";
+                        Log.e("333",String.valueOf(x));
 
-                                }
-                        }
-
-
+                    }
                 }
 
-            }//搜尋判斷選擇是true跟改陣列內容
+
+            }
+
+        }//搜尋判斷選擇是true跟改陣列內容
 
 
 
         dataAdapter.clear();
-        for( x=0 ; x<100; x++){
+        for( x=0 ; x<80; x++){
 
 
 
-            if(te[x].contains(txtsearch.getText().toString())){
+            if(te1[x].contains(txtsearch.getText().toString())){
 
-                if(status[x].equals("a"+te[x]+"true"))
-                    {
-                        _states = new States("a", te[x], true);
-                        stateList.add(_states);
-                    }
+                if(status[x].equals("a"+te1[x]+"true"))
+                {
+                    _states = new States(te1[x], true);
+                    stateList.add(_states);
+                }
                 else {
                     // Log.e(x+"",te[x]);
-                    _states = new States("a", te[x], false);
+                    _states = new States( te1[x], false);
                     //Log.e("333",_states.getName());
                     stateList.add(_states);
                 }//搜尋判斷選擇是true還是false再分別加入
@@ -293,8 +322,8 @@ public class ListViewCheckboxesActivity extends Activity
         //Array list of countries
 
         for ( x=0;x<100 ;x++) {  //設定一個for迴圈裡面放陣列動態去抓每一段的a
-            status[x] ="a"+te[x]+"false";
-            _states = new States("a",te[x],false);
+            status[x] =te1[x]+"false";
+            _states = new States(te1[x],false);
 
             stateList.add(_states);
 
@@ -403,18 +432,17 @@ public class ListViewCheckboxesActivity extends Activity
                 holder = (ViewHolder) convertView.getTag();
             }
 
-           try {
-               States state = stateList.get(position);
+            try {
+                States state = stateList.get(position);
 
-               holder.code.setText(" (" + state.getCode() + ")");
-               holder.name.setText(Html.fromHtml(state.getName()));
-               holder.name.setChecked(state.isSelected());
+                holder.name.setText(Html.fromHtml(state.getName()));
+                holder.name.setChecked(state.isSelected());
 
-               holder.name.setTag(state);
-           }catch (java.lang.NullPointerException e)
-           {
-               Log.e("33333","陣列不夠");
-           }
+                holder.name.setTag(state);
+            }catch (java.lang.NullPointerException e)
+            {
+                Log.e("33333","陣列不夠");
+            }
 
             return convertView;
         }

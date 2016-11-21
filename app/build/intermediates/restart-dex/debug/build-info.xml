@@ -3,42 +3,35 @@
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="23"
     density="xxxhdpi"
-    format="7"
-    timestamp="17731779763428"
-    token="-8432275901311768277" >
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="256074145787336"
+    token="3821216632782904851"
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="888" />
+        duration="99" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="417" />
+        duration="11" />
     <task
         name="verifier"
-        duration="20" />
+        duration="1" />
 
     <artifact
-        location="/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/resources-debug.ap_"
-        type="RESOURCES" />
-    <artifact
-        location="/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-        type="DEX" />
+        location="/home/xpizta/androidproject/105403-1/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="17253862513011" >
+    <build
+        timestamp="256074145787336"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/wei/未命名檔案夾/105403-1/app/build/outputs/apk/app-debug.apk"
+            location="/home/xpizta/androidproject/105403-1/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="17731779763428" >
-        <artifact
-            location="/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="/Users/wei/未命名檔案夾/105403-1/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>
